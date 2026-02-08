@@ -7,19 +7,23 @@ extra_css:
 extra:
   generator: false
 
-nav:
-  - Home: index.md
-  - Documentation:
-    - Ball Bar: ballbar/ballbar.md
-    - CMES Commands: CMEScommands/CMEScommands.md
-    - Servo Amps: servoamps/servoamps.md
-    - Step By Steps: stepbysteps/stepbysteps.md
-    - Soldering: soldering/soldering.md
-    - Procedures: Procedures/procedures.md 
-    - Probe Head: probehead/probehead.md
-    - Variables: variables/variables.md
+nav:  
 
-  - Videos: videos.md
+   - Home:
+      - Home: index.md
+      - Random: random.md
+  
+   - Documentation:
+     - Ball Bar: ballbar/ballbar.md
+     - CMES Commands: CMEScommands/CMEScommands.md
+     - Servo Amps: servoamps/servoamps.md
+     - Step By Steps: stepbysteps/stepbysteps.md
+     - Soldering: soldering/soldering.md
+     - Procedures: Procedures/procedures.md 
+     - Probe Head: probehead/probehead.md
+     - Variables: variables/variables.md
+
+   - Videos: videos.md
    
 
 theme:
