@@ -1,0 +1,84 @@
+site_name: MG / WWCSI Training Docs
+site_url: http://docs.mgtraining.net
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra:
+  generator: false
+
+nav:
+  - Home: index.md
+  - Documentation:
+    - Ball Bar: ballbar/ballbar.md
+    - CMES Commands: CMEScommands/CMEScommands.md
+    - Servo Amps: servoamps/servoamps.md
+    - Step By Steps: stepbysteps/stepbysteps.md
+    - Soldering: soldering/soldering.md
+    - Procedures: Procedures/procedures.md 
+    - Probe Head: probehead/probehead.md
+    - Variables: variables/variables.md
+
+  - Videos: videos.md
+   
+
+theme:
+  name: material
+  logo: Dark-Logo.png
+  palette:
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      primary: white
+      accent: black
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: blood orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+    - content.tabs.link
+    - header.autohide
+    - search.suggest
+    - search.share
+    # - toc.integrate
+
+plugins: 
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight
+
+
