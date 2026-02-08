@@ -1,7 +1,7 @@
 
 # This is a space for all of our training videos
 
-Coming soon!
+Coming soon
 
 ---
 
