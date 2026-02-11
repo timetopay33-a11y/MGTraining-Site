@@ -10,18 +10,18 @@ extra:
 nav:  
 
    - Home:
-      - Home: index.md
-      - Random: random.md
+      - Home: Home/index.md
+      - Random: Home/random.md
   
    - Documentation:
-     - Ball Bar: ballbar/ballbar.md
-     - CMES Commands: CMEScommands/CMEScommands.md
-     - Servo Amps: servoamps/servoamps.md
-     - Step By Steps: stepbysteps/stepbysteps.md
-     - Soldering: soldering/soldering.md
-     - Procedures: Procedures/procedures.md 
-     - Probe Head: probehead/probehead.md
-     - Variables: variables/variables.md
+     - Ball Bar: documentation/ballbar/ballbar.md
+     - CMES Commands: documentation/CMEScommands/CMEScommands.md
+     - Servo Amps: documentation/servoamps/servoamps.md
+     - Step By Steps: documentation/stepbysteps/stepbysteps.md
+     - Soldering: documentation/soldering/soldering.md
+     - Procedures: documentation/Procedures/procedures.md 
+     - Probe Head: documentation/probehead/probehead.md
+     - Variables: documentation/variables/variables.md
 
    - Videos: videos.md
    
@@ -84,5 +84,7 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.highlight
+  - pymdownx.snippets:
+      base_path: docs
 
 

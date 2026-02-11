@@ -9,19 +9,19 @@
 Credit:
     Job
 
-![alt text](randompics/image.png)
+![alt text](../documentation/randompics/image.png)
 
 Credit:
     Job
 
-![alt text](randompics/image-6.png)
+![alt text](../documentation/randompics/image-6.png)
 
 Credit:
     Job
 
-![alt text](randompics/image-7.png)
+![alt text](..//documentation/randompics/image-7.png)
 
 Credit:
     Job
 
-![alt text](randompics/image-8.png)
+![alt text](../documentation/randompics/image-8.png)
