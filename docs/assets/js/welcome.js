@@ -24,7 +24,7 @@
           <button class="welcome-video-close" type="button" aria-label="Close">✕</button>
         </div>
         <video class="welcome-video-player" controls preload="metadata">
-          <source src="https://videos.mgtraining.net/MG-Test.mp4" type="video/mp4">
+          <source src="https://mgtraining.net/Welcome!.mp4" type="video/mp4">
         </video>
         <div class="welcome-video-actions">
           <button class="welcome-video-skip" type="button">Skip</button>
