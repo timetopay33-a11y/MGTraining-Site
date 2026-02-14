@@ -12,9 +12,8 @@ extra:
 
 nav:  
 
-   - Home:
-      - Home: index.md
-      - Random: Home/random.md
+   - Home: index.md
+   - Random: Home/random.md
   
    - Documentation:
      - Ball Bar: documentation/ballbar/ballbar.md
