@@ -4,6 +4,9 @@ site_url: http://docs.mgtraining.net
 extra_css:
   - assets/stylesheets/extra.css
 
+extra_javascript:
+  - assets/js/welcome.js
+
 extra:
   generator: false
 
