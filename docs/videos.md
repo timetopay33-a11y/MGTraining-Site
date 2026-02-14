@@ -6,3 +6,5 @@ Coming soon
 ---
 
 - [Test](videos/test.md)
+
+ [Test](https://videos.mgtraining.net/MG-Test.mp4)

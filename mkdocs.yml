@@ -10,7 +10,7 @@ extra:
 nav:  
 
    - Home:
-      - Home: Home/index.md
+      - Home: index.md
       - Random: Home/random.md
   
    - Documentation:
