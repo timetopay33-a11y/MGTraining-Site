@@ -5,12 +5,12 @@
 </div>
 
 
+
+
+
 <div class="video-container">
-  <iframe
-    src="https://www.youtube-nocookie.com/embed/XeQjeEJTzOY"
-    title="Welcome Video"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
+  <video controls preload="metadata">
+    <source src="https://videos.mgtraining.net/MG-Test.mp4" type="video/mp4">
+  </video>
 </div>
+
