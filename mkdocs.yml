@@ -14,6 +14,8 @@ nav:
 
    - Home: index.md
    - Random: Home/random.md
+   - Important: 
+     - important/remotekeys.md
   
    - Documentation:
      - Ball Bar: documentation/ballbar/ballbar.md
