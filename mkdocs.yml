@@ -16,6 +16,7 @@ nav:
    - Random: Home/random.md
    - Important: 
      - important/remotekeys.md
+     - important/licenseupdates.md
   
    - Documentation:
      - Ball Bar: documentation/ballbar/ballbar.md
@@ -33,6 +34,8 @@ nav:
 theme:
   name: material
   logo: Dark-Logo.png
+  icon:
+    repo: fontawesome/brands/github
   palette:
 
     # Palette toggle for automatic mode
@@ -90,5 +93,6 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.snippets:
       base_path: docs
+  - attr_list
 
 
