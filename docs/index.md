@@ -12,5 +12,5 @@ Here you will find extremely useful documentation to aid you in your troubleshoo
 
 The most useful features of this site are the quick search function aswell as the training videos. If your new, be sure to use them!
 
-Much love <3 - Sam
+ Much love <3 - Sam
 
