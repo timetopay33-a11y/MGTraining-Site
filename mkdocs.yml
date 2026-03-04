@@ -1,5 +1,5 @@
 site_name: MG / WWCSI Training Docs
-site_url: http://docs.mgtraining.net
+site_url: https://docs.mgtraining.net
 
 extra_css:
   - assets/stylesheets/extra.css
@@ -34,8 +34,6 @@ nav:
 theme:
   name: material
   logo: Dark-Logo.png
-  icon:
-    repo: fontawesome/brands/github
   palette:
 
     # Palette toggle for automatic mode
@@ -72,8 +70,6 @@ theme:
     - navigation.sections
     - navigation.expand
     - navigation.top
-    - navigation.sections
-    - navigation.expand
     - content.code.copy
     - content.tabs.link
     - header.autohide
