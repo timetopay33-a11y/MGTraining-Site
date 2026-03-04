@@ -1,0 +1,94 @@
+site_name: MG / WWCSI Training Docs
+site_url: https://docs.mgtraining.net
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/js/welcome.js
+
+extra:
+  generator: false
+
+nav:  
+
+   - Home: index.md
+   - Random: Home/random.md
+   - Important: 
+     - important/remotekeys.md
+     - important/licenseupdates.md
+  
+   - Documentation:
+     - Ball Bar: documentation/ballbar/ballbar.md
+     - CMES Commands: documentation/CMEScommands/CMEScommands.md
+     - Servo Amps: documentation/servoamps/servoamps.md
+     - Step By Steps: documentation/stepbysteps/stepbysteps.md
+     - Soldering: documentation/soldering/soldering.md
+     - Procedures: documentation/Procedures/procedures.md 
+     - Probe Head: documentation/probehead/probehead.md
+     - Variables: documentation/variables/variables.md
+
+   - Videos: videos.md
+   
+
+theme:
+  name: material
+  logo: Dark-Logo.png
+  palette:
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      primary: white
+      accent: black
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: blood orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+    - content.tabs.link
+    - header.autohide
+    - search.suggest
+    - search.share
+    # - toc.integrate
+
+plugins: 
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight
+  - pymdownx.snippets:
+      base_path: docs
+  - attr_list
+
+
