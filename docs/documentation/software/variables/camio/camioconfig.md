@@ -8,6 +8,11 @@
 
 ---
 
+
+## Overview
+
+---
+
 This document provides the user with information about the variables used to control
 various aspects of the CMM and controller operation. It provides descriptions of the
 variables, and a subset of the variables that should be included in the CMM
@@ -88,49 +93,49 @@ SP25 Settings are also described in detail in UK917.
 
 # Velocity & acceleration based variables
 
-**General machine velocities & accelerations**
+## **General machine velocities & accelerations**
 ![alt text](image-4.png)
 
-**Touch Trigger related velocities & accelerations**
+## **Touch Trigger related velocities & accelerations**
 ![alt text](image-5.png)
 
-**Manual control (hoystick) velocities & accelerations**
+## **Manual control (hoystick) velocities & accelerations**
 ![alt text](image-6.png)
 
-**Touch trigger & laser scanning velocities**
+## **Touch trigger & laser scanning velocities**
 ![alt text](image-7.png)
 
-**Various other velocities & accelerations**
+## **Various other velocities & accelerations**
 ![alt text](image-8.png)
 
 ---
 # Distance based variables
 
-**Touch trigger measurment**
+## **Touch trigger measurment**
 ![alt text](image-9.png)
 
-**Touch trigger scanning**
+## **Touch trigger scanning**
 ![alt text](image-10.png)
 
-**Scale reset / homing**
+## **Scale reset / homing**
 ![alt text](image-11.png)
 
-**Blended moves**
+## **Blended moves**
 ![alt text](image-12.png)
 
-**Positioning**
+## **Positioning**
 ![alt text](image-13.png)
 
 ---
 # Analogue probe based variables
 
-**Deflection control**
+## **Deflection control**
 ![alt text](image-14.png)
 
-**Scanning data rate of interval**
+## **Scanning data rate of interval**
 ![alt text](image-15.png)
 
-**Scanning / measurement control flags**
+## **Scanning / measurement control flags**
 ![alt text](image-16.png)
 
 SPMODE
@@ -143,7 +148,7 @@ MCC200 V200.30+
 MCC250 V200.31+
 NMC300 V300.08+
 
-**Miscellaneous variables**
+# **Miscellaneous variables**
 ![alt text](image-17.png)
 
 ---
@@ -155,7 +160,7 @@ included
 i.e. DMIS:: ‘ SET, FEDRAT, POSVEL’
 
 
-**Axis velocity and acceleration optimisation variables**
+# **Axis velocity and acceleration optimisation variables**
 
 XVELM X axis max velocity (m/min^2) DMIS: ‘ SET, FEDRAT, POSVEL’
 
@@ -190,10 +195,10 @@ upon the mechanical configuration of the CMM
 
 ---
 
-**Variable Descriptions**
+# **Variable Descriptions**
 
-**ACCB Back off acceleration after a touch (m/min^2)
-**
+**ACCB** Back off acceleration after a touch (m/min^2)
+
 This is the acceleration used during the retract movement away from the surface after a probe touch. A lower value
 helps reduce the jerk that can occur after a touch. If it is too low then the probe can stick to the part, too high and it
 can fire the probe off.

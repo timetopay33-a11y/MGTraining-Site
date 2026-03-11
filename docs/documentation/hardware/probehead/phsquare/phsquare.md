@@ -1,10 +1,12 @@
 
 <div class="page-title">
   <a href="javascript:history.back()" class="back-inline" aria-label="Back">←</a>
-  <h1>Squareness</h1>
+  <h1>Squaring a probehead</h1>
 </div>
 
 Source: 6-notes/StepBySteps/Squares/PH/Probe Head Squares UK891_A1
+
+This information is complied from a document provided in the above path
 
 ---
 

@@ -1,4 +1,7 @@
-# License Update Files
+<div class="page-title">
+  <a href="javascript:history.back()" class="back-inline" aria-label="Back">←</a>
+  <h1>License Update Files</h1>
+</div>
 
 When new update files are released, you will be able to access them here
 

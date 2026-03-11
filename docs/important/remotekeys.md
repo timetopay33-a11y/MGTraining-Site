@@ -1,4 +1,7 @@
-# Remote Access Keys & ID's
+<div class="page-title">
+  <a href="javascript:history.back()" class="back-inline" aria-label="Back">←</a>
+  <h1>Remote Keys & ID's</h1>
+</div>
 
 These are the ID's and keys required to access our work devices remotely via RustDesk. All devices should have the latest version of Rustdesk installed.
 !!! Note

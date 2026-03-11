@@ -14,20 +14,12 @@ nav:
 
    - Home: index.md
    - Random: Home/random.md
-   - Important: 
-     - important/remotekeys.md
-     - important/licenseupdates.md
-  
    - Documentation:
-     - Ball Bar: documentation/ballbar/ballbar.md
-     - CMES Commands: documentation/CMEScommands/CMEScommands.md
-     - Servo Amps: documentation/servoamps/servoamps.md
+     - Hardware: documentation/hardware/hardware.md
+     - Important: important/important.md
+     - Software: documentation/software/software.md
      - Step By Steps: documentation/stepbysteps/stepbysteps.md
-     - Soldering: documentation/soldering/soldering.md
      - Procedures: documentation/Procedures/procedures.md 
-     - Probe Head: documentation/probehead/probehead.md
-     - Variables: documentation/variables/variables.md
-
    - Videos: videos.md
    
 
