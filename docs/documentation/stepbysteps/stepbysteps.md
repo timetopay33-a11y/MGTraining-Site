@@ -2,7 +2,7 @@
 
 
 
- These are guides, meant to simplify proceccees. These are not proceedurs, they are meant to simply allow you to stay on track and not forget any steps.
+ These are guides, meant to simplify proceccees. These are not procedures, they are meant to simply allow you to stay on track.
 
  ---
 

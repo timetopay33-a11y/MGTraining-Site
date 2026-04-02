@@ -1,10 +1,8 @@
-
 <div class="page-title">
   <a href="javascript:history.back()" class="back-inline" aria-label="Back">←</a>
-  <h1>Ballbar</h1>
+  <h1>Probehead</h1>
 </div>
-
 
 ---
 
-- [Squareness](squareness.md)
+- [Squaring a probehead](phsquare/phsquare.md)
