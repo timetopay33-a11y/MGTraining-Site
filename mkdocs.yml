@@ -19,7 +19,7 @@ nav:
      - important/licenseupdates.md
   
    - Documentation:
-     - Ball Bar: documentation/ballbar/ballbar.md
+     - Hardware: documentation/hardware/hardware.md
      - CMES Commands: documentation/CMEScommands/CMEScommands.md
      - Servo Amps: documentation/servoamps/servoamps.md
      - Step By Steps: documentation/stepbysteps/stepbysteps.md
