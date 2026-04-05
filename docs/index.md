@@ -1,6 +1,6 @@
 
 !!! announcement
-    Currently working to add all the most useful documentation, [please txt me if you want anything added!](tel:15024341648)
+    Currently working to add all the most useful documentation, just added some intresting links under the (Documentation/important) tab! [please txt me if you want anything added!](tel:15024341648)
 
 ---
 
