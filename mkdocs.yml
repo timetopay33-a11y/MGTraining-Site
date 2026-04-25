@@ -21,6 +21,7 @@ nav:
      - Step By Steps: documentation/stepbysteps/stepbysteps.md
      - Procedures: documentation/Procedures/procedures.md 
    - Videos: videos.md
+   - Simulation: sim.md
    
 
 theme:

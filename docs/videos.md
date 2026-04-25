@@ -5,6 +5,9 @@ Coming soon
 
 ---
 
-- [Test](videos/test.md)
+<div class="grid cards" markdown>
 
- [Test](https://videos.mgtraining.net/MG-Test.mp4)
+- [![Image](videos/test.png)](https://videos.mgtraining.net/MG-Test.mp4)
+ **test**
+
+</div>
