@@ -7,6 +7,12 @@
  Source:
     6-Notes/StepBySteps/Calibrations
 
+!!! warning
+    **This procedure is outdated**
+
+
+
+
 ---
 Utilizes –
 WWCSI Laptop with Camio 7.2 & Caliprogs

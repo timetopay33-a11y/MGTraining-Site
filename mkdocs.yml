@@ -22,6 +22,9 @@ nav:
      - Procedures: documentation/Procedures/procedures.md 
    - Videos: videos.md
    - Simulation: sim.md
+   - Training:
+     - Start: training/start.md
+ 
    
 
 theme:
