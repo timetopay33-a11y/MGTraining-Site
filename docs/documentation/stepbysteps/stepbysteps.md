@@ -10,6 +10,6 @@
   - [Calibration](sub/Calibration.md)
   - [Shooting straightness setup](sub/laserstraight.md)
   - [Soldering](sub/soldering/soldering.md)
-  - [Squareness](/ballbar/squareness)
+  - [Squareness](../hardware/ballbar/squareness.md)
   - [Twin Column Alignment](sub/TCAlignment.md)
       
