@@ -1,0 +1,2 @@
+# Pin the docs toolchain so the site builds the same way locally and in CI.
+mkdocs-material>=9.5
