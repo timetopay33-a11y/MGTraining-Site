@@ -1,0 +1,2741 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Internal training and troubleshooting documentation for MG / WWCSI metrology systems — hardware, software, procedures, and step-by-step guides.">
+      
+      
+      
+        <link rel="canonical" href="https://docs.mgtraining.net/documentation/software/variables/camio/camioconfig/">
+      
+      
+        <link rel="prev" href="../../variables/">
+      
+      
+        <link rel="next" href="../../../../stepbysteps/sub/Calibration/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../Dark-Logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Camio Config - MG / WWCSI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--announcement:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%208H4a2%202%200%200%200-2%202v4a2%202%200%200%200%202%202h1v4a1%201%200%200%200%201%201h2a1%201%200%200%200%201-1v-4h3l5%204V4zm9.5%204c0%201.71-.96%203.26-2.5%204V8c1.53.75%202.5%202.3%202.5%204%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="MG / WWCSI" class="md-header__button md-logo" aria-label="MG / WWCSI" data-md-component="logo">
+      
+  <img src="../../../../../Dark-Logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MG / WWCSI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Camio Config
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../hardware/ballbar/ballbar/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Documentation
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../videos/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Videos
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../sim/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Simulation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../training/start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Training
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../Home/cursed/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Random
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="MG / WWCSI" class="md-nav__button md-logo" aria-label="MG / WWCSI" data-md-component="logo">
+      
+  <img src="../../../../../Dark-Logo.png" alt="logo">
+
+    </a>
+    MG / WWCSI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../hardware/ballbar/ballbar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ballbar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../hardware/probehead/probehead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Probehead
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../hardware/probehead/phsquare/phsquare/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Squaring a Probehead
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../hardware/servoamps/servoamps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servo Amps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../hardware/servoamps/eurocard/eurocard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eurocard Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../hardware/soldering/soldering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Soldering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CMEScommands/CMEScommands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CMES Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camio Config
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camio Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#velocity-acceleration-based-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Velocity &amp; acceleration based variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Velocity &amp; acceleration based variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-machine-velocities-accelerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General machine velocities &amp; accelerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#touch-trigger-related-velocities-accelerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Touch Trigger related velocities &amp; accelerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-control-hoystick-velocities-accelerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual control (hoystick) velocities &amp; accelerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#touch-trigger-laser-scanning-velocities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Touch trigger &amp; laser scanning velocities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#various-other-velocities-accelerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Various other velocities &amp; accelerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distance-based-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distance based variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Distance based variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#touch-trigger-measurment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Touch trigger measurment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#touch-trigger-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Touch trigger scanning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scale-reset-homing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scale reset / homing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blended-moves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blended moves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Positioning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analogue-probe-based-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analogue probe based variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analogue probe based variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deflection-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deflection control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scanning-data-rate-of-interval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scanning data rate of interval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scanning-measurement-control-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scanning / measurement control flags
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#miscellaneous-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Miscellaneous variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#axis-velocity-and-acceleration-optimisation-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Axis velocity and acceleration optimisation variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Descriptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step By Steps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Step By Steps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../stepbysteps/sub/Calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../stepbysteps/sub/laserstraight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laser Straightness Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../stepbysteps/sub/soldering/soldering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Soldering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../stepbysteps/sub/TCAlignment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Twin Column Alignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Procedures
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Procedures
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Procedures/calibration/calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Important
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Important
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../important/licenseupdates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License Updates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../important/remotekeys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remote Keys & IDs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../important/links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../important/videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference Videos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../sim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Training
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Training
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../training/start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Refrence Pages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Refrence Pages
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../training/hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Random
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Random
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Home/cursed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cursed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Home/travel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#velocity-acceleration-based-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Velocity &amp; acceleration based variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Velocity &amp; acceleration based variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-machine-velocities-accelerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General machine velocities &amp; accelerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#touch-trigger-related-velocities-accelerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Touch Trigger related velocities &amp; accelerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-control-hoystick-velocities-accelerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual control (hoystick) velocities &amp; accelerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#touch-trigger-laser-scanning-velocities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Touch trigger &amp; laser scanning velocities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#various-other-velocities-accelerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Various other velocities &amp; accelerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distance-based-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distance based variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Distance based variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#touch-trigger-measurment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Touch trigger measurment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#touch-trigger-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Touch trigger scanning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scale-reset-homing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scale reset / homing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blended-moves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blended moves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Positioning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analogue-probe-based-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analogue probe based variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analogue probe based variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deflection-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deflection control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scanning-data-rate-of-interval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scanning data rate of interval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scanning-measurement-control-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scanning / measurement control flags
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#miscellaneous-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Miscellaneous variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#axis-velocity-and-acceleration-optimisation-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Axis velocity and acceleration optimisation variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Descriptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div class="page-title">
+  <a href="javascript:history.back()" class="back-inline" aria-label="Back">←</a>
+  <h1>Camio Config</h1>
+</div>
+
+<hr />
+<h2 id="overview">Overview</h2>
+<hr />
+<p>This document provides the user with information about the variables used to control
+various aspects of the CMM and controller operation. It provides descriptions of the
+variables, and a subset of the variables that should be included in the CMM
+configuration file LKcmmdrv.</p>
+<p>These variables are often known for historical reasons as CVAL variables, this was the
+name used when they were originally introduced on the first controllers.
+Some variables have become obsolete and are no longer used on current production
+machines but are used on older controllers and so are included here for completeness.</p>
+<p>Most of these variables can be set by use of
+the CMM Configuration dialogue of CAMIO
+which will update the LKcmmdrv.cfg file.
+Some of the variables are related to specific
+machine characteristics and normally don’t
+change but some are measurement
+application dependent. These values can be
+changed from within a DMIS part program.
+The DMIS commands to modify these are
+also included in this document.</p>
+<p><img alt="alt text" src="../image.png" /></p>
+<p>The setting of the values within the controller
+follows the sequence below:</p>
+<ul>
+<li>
+<p>Controller starts up and loads
+default values for all variables</p>
+</li>
+<li>
+<p>When the inspection software
+starts it reads the list of variables and their
+values from the configuration file, these
+values override the default ones set and
+these will be a subset of the entire set of
+variables.</p>
+</li>
+<li>
+<p>Some variables may then be changed by the inspection software depending
+upon the mode of operation or by commands within a DMIS part program</p>
+</li>
+</ul>
+<p>If the variables are not set then the nominal values within the controller will be used.
+Other variables quoted in this document are explained more fully in various Tech
+memos the list below states which Tech memos are required to complete this
+document.</p>
+<ul>
+<li>UK 539: LK machine standard speeds and accelerations</li>
+<li>UK 777: Installation, integration, configuration and use of the SP25M analogue
+probing system</li>
+<li>UK 676: Vecpd</li>
+<li>UK 917: SP25 - Settings and Best Practices</li>
+</ul>
+<p>List of variables that should always be included
+The following tables give a list of the variable that should be always be included in
+most CMM configuration files along with their suggested values for a typical machine
+some values may change depending upon the style of machine .</p>
+<p>The actual values in operation within the controller can be observed using
+OverseerNMC which updates its display as the variables are changed.</p>
+<p><img alt="alt text" src="../image-1.png" />
+<img alt="alt text" src="../image-2.png" /></p>
+<p>( SRCHVLT is not sent to the controller but is used internally by the inspection software.
+ACCM should not be set higher than the axis with the lowest acceleration )</p>
+<p><img alt="alt text" src="../image-3.png" /></p>
+<p>The following tables list all the variables grouped by function. A more detailed
+description is given later in this document. It is not necessary to include all these
+variables in the configuration file. The controller has default values which are adequate
+for normal machine operation. Some variables are now obsolete and some are used
+internally within the software and firmware. Suggestions for default and high and low
+limits are included where appropriate. Where values do not exist, please refer to the
+main variable table at the top of this document.</p>
+<p>SP25 Settings are also described in detail in UK917.</p>
+<hr />
+<h1 id="velocity-acceleration-based-variables">Velocity &amp; acceleration based variables</h1>
+<h2 id="general-machine-velocities-accelerations"><strong>General machine velocities &amp; accelerations</strong></h2>
+<p><img alt="alt text" src="../image-4.png" /></p>
+<h2 id="touch-trigger-related-velocities-accelerations"><strong>Touch Trigger related velocities &amp; accelerations</strong></h2>
+<p><img alt="alt text" src="../image-5.png" /></p>
+<h2 id="manual-control-hoystick-velocities-accelerations"><strong>Manual control (hoystick) velocities &amp; accelerations</strong></h2>
+<p><img alt="alt text" src="../image-6.png" /></p>
+<h2 id="touch-trigger-laser-scanning-velocities"><strong>Touch trigger &amp; laser scanning velocities</strong></h2>
+<p><img alt="alt text" src="../image-7.png" /></p>
+<h2 id="various-other-velocities-accelerations"><strong>Various other velocities &amp; accelerations</strong></h2>
+<p><img alt="alt text" src="../image-8.png" /></p>
+<hr />
+<h1 id="distance-based-variables">Distance based variables</h1>
+<h2 id="touch-trigger-measurment"><strong>Touch trigger measurment</strong></h2>
+<p><img alt="alt text" src="../image-9.png" /></p>
+<h2 id="touch-trigger-scanning"><strong>Touch trigger scanning</strong></h2>
+<p><img alt="alt text" src="../image-10.png" /></p>
+<h2 id="scale-reset-homing"><strong>Scale reset / homing</strong></h2>
+<p><img alt="alt text" src="../image-11.png" /></p>
+<h2 id="blended-moves"><strong>Blended moves</strong></h2>
+<p><img alt="alt text" src="../image-12.png" /></p>
+<h2 id="positioning"><strong>Positioning</strong></h2>
+<p><img alt="alt text" src="../image-13.png" /></p>
+<hr />
+<h1 id="analogue-probe-based-variables">Analogue probe based variables</h1>
+<h2 id="deflection-control"><strong>Deflection control</strong></h2>
+<p><img alt="alt text" src="../image-14.png" /></p>
+<h2 id="scanning-data-rate-of-interval"><strong>Scanning data rate of interval</strong></h2>
+<p><img alt="alt text" src="../image-15.png" /></p>
+<h2 id="scanning-measurement-control-flags"><strong>Scanning / measurement control flags</strong></h2>
+<p><img alt="alt text" src="../image-16.png" /></p>
+<p>SPMODE</p>
+<ul>
+<li>CAMIO 6.3, 7.x, 8.0 ( Set default to 0 [closed loop])</li>
+<li>CAMIO 8.1 and above ( Set default to 1 [Open loop])</li>
+</ul>
+<p>SPMODE is only available with MCC200/250 and NMC300 Controllers
+MCC200 V200.30+
+MCC250 V200.31+
+NMC300 V300.08+</p>
+<h1 id="miscellaneous-variables"><strong>Miscellaneous variables</strong></h1>
+<p><img alt="alt text" src="../image-17.png" /></p>
+<hr />
+<p>The following section gives a more detailed description of the variables. Some can be changed by
+a command in the DMIS part program. Where this is the case then the DMIS code has been
+included</p>
+<p>i.e. DMIS:: ‘ SET, FEDRAT, POSVEL’</p>
+<h1 id="axis-velocity-and-acceleration-optimisation-variables"><strong>Axis velocity and acceleration optimisation variables</strong></h1>
+<p>XVELM X axis max velocity (m/min^2) DMIS: ‘ SET, FEDRAT, POSVEL’</p>
+<p>YVELM Y axis max velocity (m/min^2) DMIS: ‘ SET, FEDRAT, POSVEL’</p>
+<p>ZVELM Z axis max velocity (m/min^2) DMIS: ‘ SET, FEDRAT, POSVEL’</p>
+<p>XACCM X axis max acceleration (m/min) DMIS: ‘ SET, ACLRAT, POSACL’</p>
+<p>YACCM Y axis max acceleration (m/min) DMIS: ‘ SET, ACLRAT, POSACL’</p>
+<p>ZACCM Z axis max acceleration (m/min) DMIS: ‘ SET, ACLRAT, POSACL’</p>
+<p>These six variables are machine dependent; their values should be taken from relevant machine
+specifications document.</p>
+<p>They control the velocity and acceleration of all the axes and the controller uses these values to
+calculate the ‘Axis optimised values’ for the
+machine.</p>
+<p>These variables are set using the optimisation tab
+of the CMM configuration dialogue.</p>
+<p>Different CMM axes can and usually do have
+different velocities and accelerations depending
+upon the mechanical configuration of the CMM</p>
+<p><img alt="alt text" src="../image-18.png" /></p>
+<p><img alt="alt text" src="../image-19.png" /></p>
+<hr />
+<h1 id="variable-descriptions"><strong>Variable Descriptions</strong></h1>
+<p><strong>ACCB</strong> Back off acceleration after a touch (m/min^2)</p>
+<p>This is the acceleration used during the retract movement away from the surface after a probe touch. A lower value
+helps reduce the jerk that can occur after a touch. If it is too low then the probe can stick to the part, too high and it
+can fire the probe off.</p>
+<hr />
+<p><strong>ACCM</strong> Maximum acceleration (m/min^2)</p>
+<p>This is used for the deceleration after an error or when the handbox pause button or the software ‘Program stop’: icon
+has been clicked. The value should be the same as the lowest X, Y, or Z ACCM.</p>
+<hr />
+<p><strong>ACCV</strong> Vector acceleration (m/min^2)</p>
+<p>Acceleration value used for scale homing sequence only</p>
+<hr />
+<p><strong>APNT</strong> Analogue probe measurement method</p>
+<p>This is a flag that indicates if the analogue probe is to take a normal measurement point or a special point used during
+probe calibration. This must be present in the LKcmmdrv.cfg file even though its value is changed by the inspection
+software.</p>
+<hr />
+<p><strong>DAVG</strong> Scan data averaging</p>
+<p>No longer used.</p>
+<hr />
+<p><strong>IFQTIM</strong> Interface quiet time (sec)</p>
+<p>This value defines how long the servo drives stay enabled after a move. This is a machine dependent variable. Setting
+it to 0 (zero) will leave the amps on all the time and it is often set this way on horizontal arm machines to stop the z
+carriage from moving slightly when it is at the extremes of travel.</p>
+<p>It is acceptable for the value to be changed for calibration purposes to suit the need of the machine, but after
+calibration it must be left to the default of 5 seconds.</p>
+<p>Care must be taken when using the zero setting; the E-stop must be used if the machine is left unattended for any
+period of time. If the air supply is removed from the machine then the amps will try to drive the machine to hold
+position and this will cause the motors to burn out.</p>
+<hr />
+<p><strong>JACCV</strong> Joystick acceleration</p>
+<p>The 0.3 setting above is the default for all LK2000 controllers, with later controllers this value is 800m/min2</p>
+<hr />
+<p><strong>JAVSF</strong> Joystick angular velocity (rpm)</p>
+<p>This sets the velocity of the rotary table in joystick mode. The default is set in the firmware and it is not normally
+changed, but it can be overridden using this variable.</p>
+<hr />
+<p><strong>JLVSF</strong> Joystick linear velocity (m/min)</p>
+<p>This value controls the speed of the axis when driven by the handbox joystick. Some users prefer to set it higher on
+large machines but care must be taken, because the faster the handbox speed then the more difficult it becomes to
+drive the probe around a part without it crashing.</p>
+<hr />
+<p><strong>LACCM</strong> Deceleration after a touch (m/min^2)</p>
+<p>This is the rate the machine decelerates after a probe trigger. The default is used for all machines and normally
+shouldn’t need changing.</p>
+<hr />
+<p><strong>LIFTIM</strong> Delay after rotary table lift (sec)</p>
+<p>An indexing table requires a period of time to raise the table top before it can start rotating. This value is machine
+dependent but a good starting point is 2 seconds. If the customer requires short cycle times then reducing this figure
+can help, but caution must be taken. If the delay is too short then the motor will try to rotate the table when it’s still
+lifting and its teeth will still be engaged in the coupling and this will create a torque error. The value must be set to 1
+second if a continuous table is fitted, as there is still a small delay required for this style of table. If there is no rotary
+table fitted then a value of zero is required.</p>
+<p>Do not exceed 9 seconds, as this will create a conflict with the COMMS 2 setting in the LKCMMDRV.CFG.</p>
+<hr />
+<p><strong>MAXSPLINE</strong> Max number of splines for VCAS command</p>
+<p>No longer used.</p>
+<hr />
+<p><strong>NPNT</strong> Number of samples used when calibrating an analogue probe</p>
+<p>Number of scale and probe readings collected to create a single measurement point when calibrating an analogue
+probe</p>
+<hr />
+<p><strong>PDAMP</strong> PICS (TP200 &amp; TP7) Probe damping</p>
+<p>No longer used.</p>
+<p>The PICS probe damping signal was controlled by this variable. Enable damping = -1, Disable damping = 0. This is
+now performed automatically by the controller.</p>
+<hr />
+<p><strong>PDCRD</strong> Analogue probe calibration reference deflection (mm)</p>
+<p>Refer to Tech memo UK917.</p>
+<hr />
+<p><strong>PDESD</strong> Probe Deflection Maximum Distance (mm)</p>
+<p>No longer used. Last used in 100.10 firmware.</p>
+<p>Refer to Tech memo UK777.</p>
+<hr />
+<p><strong>PDLLD</strong> Probe Deflection Lower Limit Distance (mm)</p>
+<p>Refer to Tech memo UK917.</p>
+<hr />
+<p><strong>PDPRD</strong> Probe Deflection Point Reference Distance (mm)</p>
+<p>No longer used with AIM, MCC200 and NMC300 controllers
+Refer to Tech memo UK917.</p>
+<hr />
+<p><strong>PDRDINT</strong> Analogue probe time interval between readings (sec)</p>
+<p>When scanning with an analogue probe the data can be collected on a time or position basis, the mode being set by
+the SMTD variable. PDRDINT is the time between data points in seconds. E.G. a value of 0.1 would give 10 readings
+a second.</p>
+<p>Refer to SMTD</p>
+<hr />
+<p><strong>PDSRD</strong> Probe Deflection Scan Reference Distance (mm)</p>
+<p>DMIS: SCNSET/DRAG,DEFALT,DEFLECTION,0.n</p>
+<p>Refer to Tech memo UK777.</p>
+<hr />
+<p><strong>PDTD</strong> Analogue probe damping threshold</p>
+<p>Started at firmware 100.13</p>
+<p>In manual operation the probe deflection must exceed this value to register a manual point.</p>
+<hr />
+<p><strong>PDULD</strong> Probe Deflection Upper Limit Distance (mm)</p>
+<p>Refer to Tech memo UK917.</p>
+<hr />
+<p><strong>PEKOT</strong> Distance to move away from surface before Probe not armed error (mm) (peck scanning).****</p>
+<p>Whilst touch trigger scanning the probe has to re-arm after each contact. This is the distance that the probe is allowed
+to travel whilst trying to move clear of the surface.</p>
+<hr />
+<p><strong>PHSACCV</strong> PHS head rotary accel (deg/sec^2)</p>
+<p>The variable is used only when a PHS1 head is fitted.</p>
+<hr />
+<p><strong>PHSVELT</strong> PHS head rotary touch velocity (deg/sec)</p>
+<p>The variable is used only when a PHS1 head is fitted.</p>
+<hr />
+<p><strong>PHSVELV</strong> PHS head rotary velocity (deg/sec)</p>
+<p>The variable is used only when a PHS1 head is fitted.</p>
+<hr />
+<p><strong>PRBFLT</strong> Analogue probe deflection filter (sec)</p>
+<p>This filters the analogue probe deflection values.</p>
+<hr />
+<p><strong>PRDIS</strong> Probe disabling for high vibration CMM: 1 = on, 0 = off</p>
+<p>Not used on ACT/AIM, MCC200, NMC300 or NMC100 controllers.</p>
+<p>This will disable the probe at all times from recording a touch except when the machine moves into touch mode. It is
+used on high vibration machines or high velocity moves with long extensions. Care must be taken using this mode as
+the machine can crash and the system cannot detect it</p>
+<hr />
+<p><strong>SBAK</strong> Back off distance (mm)</p>
+<p>DMIS: RETRCT</p>
+<p>This is the distance the probe retracts after a probe trigger. If it’s set too low then an illegal touch can occur, too high
+and the probe can back off into a nearby object. The value of 1.5mm is the default for all calibration requirements. Any
+other setting will take place within the part program, which should return it back to 1.5mm when the program finishes.</p>
+<hr />
+<p><strong>SCVEL</strong> Scanning velocity (m/min)</p>
+<p>DMIS: SET, FEDRAT, SCNVEL</p>
+<p>This sets the speed at which the machine will travel while performing any type of scan. The calibration programs set
+the SCVEL at run time which is 0.2 for a digital probe. If the value is reduced then the machine will move more slowly
+and more data is taken. The reverse happens if the value is increased.</p>
+<p>The low default value is 0.05 and high is 5.</p>
+<hr />
+<p><strong>SEPOS</strong> Distance between EPOS messages (mm).</p>
+<p>This affects how often the DRO display is updated. For calibration Lasering purposes it must be set to zero otherwise
+the true position of the axis will not be displayed. This is the distance a CMM axis move before another EPOS
+message (DRO update message) is sent and the DRO is updated. A value of zero means that EPOS messages will
+be sent at the maximum rate possible (typically 10 messages per second). Setting a distance will reduce number of
+update messages sent lowering the communications overhead and eliminating the DRO flicker when the machine is
+stationary.</p>
+<hr />
+<p><strong>SERL</strong> Position error limit - positional accuracy after fine positioning command (mm)</p>
+<p>This variable sets the positional accuracy tolerance of a machine move after a DMIS FINPOS command. If it’s set too
+low then the machine will never get to position. This is really only an issue with older machines and controllers and
+setting it to 0.03 is sufficient for all new machines.</p>
+<hr />
+<p><strong>SINT</strong> Analogue scanning distance interval (mm)</p>
+<p>This is used with an analogue probe to set the distance between scanning points. It is used in conjunction with SMTD.
+Refer to SMTD</p>
+<hr />
+<p><strong>SMTD</strong> Analogue scanning data collection method</p>
+<p>DMIS: ‘SCNSET/DRAG,DIST,n.nn
+DMIS: ‘SCNSET/DRAG,Time,n.nn</p>
+<p>This defines whether the user wishes to use time based or interval base scanning data collection.</p>
+<p><img alt="alt text" src="../image-20.png" /></p>
+<p>Set via the DMIS part program</p>
+<p>Refer to SINT and PDRDINT</p>
+<hr />
+<p><strong>SPROT</strong> Distance in contact with the surface when touch probe scanning (mm)</p>
+<p>This is used for touch trigger scanning. This controls how far the machine can travel with the probe in contact with the
+surface before it triggers an error.</p>
+<hr />
+<p><strong>SRCVR</strong> Auto recovery from unknown path scan</p>
+<p>Setting this value to 1 will enable unknown path scan error recovery. Should the analogue probe unknown path scan
+fail due to a deflection limit violation it will attempt to restart. Setting it to zero switches auto recovery off.</p>
+<hr />
+<p><strong>SRLIM</strong> Distance to travel after detecting reference mark (mm)</p>
+<p>When homing a machine axis the controller drives the readerhead along at a medium velocity searching for the
+reference mark, when it is found it travels past it for a set distance before reversing direction to find it again at a slow
+velocity. SRLIM sets this over-travel distance.</p>
+<hr />
+<p><strong>SSBAK</strong> Scanning back off distance (mm)</p>
+<p>DMIS: ‘ RETRCT’</p>
+<p>This determines how far the probe backs off away from the part after it’s completed a scan.</p>
+<hr />
+<p><strong>STOT</strong> Over travel distance to detect a touch (mm)</p>
+<p>DMIS: ‘SEARCH’</p>
+<p>When the machine takes an automatic point it will use 2 variables to determine how far before and after the expected
+touch that the probe will become active and register a point.</p>
+<p>This value controls the distance the probe will carry on travelling in search of an expected touch. If this value is too
+small then a ‘No touch detected’ error may occur. For calibration purposes 10mm is the default.</p>
+<hr />
+<p><strong>STUT</strong> Under travel distance to detect a touch (mm)</p>
+<p>DMIS: ‘APPRCH’</p>
+<p>When the machine takes an automatic point it will use 2 variables to determine how far before and after the expected
+touch that the probe will become active and register a point.</p>
+<p>This value controls at what distance the probe will start to look before an expected touch. If the value is too small then
+the machine does not have enough time to become stable after a high-speed move. This will result in poor
+repeatability. For calibration purposes 10mm is the default.</p>
+<hr />
+<p><strong>SWPR</strong> Way point Radius (mm)</p>
+<p>DMIS: FLY/nn</p>
+<p>This will set the size of the radius when waypoint positions are used. It is a user dependent variable and set at
+application level.</p>
+<hr />
+<p><strong>SXOFF</strong> Distance between S reset magnet and X reset magnet (CMES)</p>
+<p><strong>SXSD</strong> Distance between x and s scales (CMES)</p>
+<p><strong>SYRP</strong> Distance between Y reset and x scale (CMES)</p>
+<p>These values are not an LKcmmdrv. cfg configurable variable for Dmis.</p>
+<p>Refer to Tech memo UK676.</p>
+<hr />
+<p><strong>TPLON</strong> Touch probe de-activated</p>
+<p>Touch probe activated (-1= probe not active, 0=probe active)</p>
+<p>Warning! This will de-activate the probe and stop it taking points at all times.</p>
+<hr />
+<p><strong>TRETRY</strong> Probe rearm retry limit (n)</p>
+<p>This is no longer used as it is overridden by the LKcmmdrv. cfg in the ‘RETRY’ tab.</p>
+<hr />
+<p><strong>VELB</strong> Back off velocity (m/min)</p>
+<p>This value controls the velocity of the retract after a probe trigger. Unless SBAK is set to a large figure then the effect
+of this variable is barely noticed. The ACCB variable is more noticeable and has more effect.</p>
+<hr />
+<p><strong>VELD</strong> Tool changer docking velocity (Cmes)</p>
+<p>This value controls the velocity at which the probe will enter the ACR1 rack. User no longer sets it as all the probe/tip
+changer programs set the defaults automatically.</p>
+<hr />
+<p><strong>VELM</strong> Maximum velocity (m/min)</p>
+<p>This variable is no longer used.</p>
+<hr />
+<p><strong>VELT</strong> Touch velocity (m/min)</p>
+<p>DMIS: ‘ SET, FEDRAT, MESVEL’</p>
+<p>This controls the velocity at which the machine takes a touch. If it’s too high then the machine becomes unstable and
+gives poor repeatability and the same result occurs if it’s too low. All current production machines using digital probes
+are set to 0.15 but can be set up to 0.25. The lower value of 0.1 is used when analogue probes are fitted
+Low is set at 0.1 and High at 0.5. VELT is active between STUT and STOT.</p>
+<hr />
+<p><strong>VELV</strong> Vector velocity (m/min)</p>
+<p>Set VELV to the same value as the lowest X, Y, or Z VELM. The VELV is used when axis optimisation is switched off.
+If it is switched on then older controllers use the axisVELM values to control the vector velocity so VELV should not be
+set to the vector velocity as shown in UK539. It is also used for the reset velocity in ‘Variables, Reset’ of the
+configurator and a value of 2 is the normal reset speed.</p>
+<hr />
+<p><strong>VELVR</strong> Slow speed velocity (m/min)</p>
+<p>This controls the velocity of any automatic machine move while the slow speed button is used on the hand box. Slow
+speed manual moves on the hand box are controlled by the VELT variable.</p>
+<hr />
+<p><strong>WACCM</strong> Rotary max acceleration (rpm^2)</p>
+<p>No longer used</p>
+<hr />
+<p><strong>WACCV</strong> Rotary acceleration (rpm^2)</p>
+<p>DMIS: ‘ SET, ACLRAT, ROTACL’</p>
+<p>If a rotary table is fitted then you need to set the acceleration value using this variable. A value of 100 is usually
+sufficient for most tables.</p>
+<hr />
+<p><strong>WSBAK</strong> Rotary back off (degrees)</p>
+<p>This similar to SBAK except it is the rotary table that moves and not the machine.
+No longer used.</p>
+<hr />
+<p><strong>WSERL</strong></p>
+<p>Positional accuracy after fine positioning command (degrees)</p>
+<p>This variable sets the positional accuracy tolerance of a continuous rotary table move after a FINPOS command. If it’s
+set too low then the table will never get to position. This is really only an issue with older machines and controllers and
+setting it to 0.03 is sufficient for all new machines.</p>
+<hr />
+<p><strong>WVELM</strong> Maximum rotary velocity (rpm)</p>
+<p>No longer used</p>
+<hr />
+<p><strong>WVELT</strong> Used when re-setting the rotary table</p>
+<p>The table will travel at the speed when returning to the reference mark.</p>
+<hr />
+<p><strong>WVELV</strong> Rotary vector velocity (rpm)</p>
+<p>DMIS: ‘ SET, FEDRAT, ROTVEL’</p>
+<p>This value sets the rotary table rotational speed. A value of 2 is usually sufficient for most tables. If the value is too low
+then cycle times increase but if it’s too high then the part can shift on the table.</p>
+<hr />
+<p><strong>WVELVR</strong> Slow rotary velocity</p>
+<p>This controls the velocity of any automatic rotary table move while the slow speed button is used on the hand box.</p>
+<hr />
+<p><strong>XSKNACCM</strong></p>
+<p>Maximum allowable acceleration in the X axis during known path scanning.</p>
+<hr />
+<p><strong>YSKNACCM</strong></p>
+<p>Maximum allowable acceleration in the Y axis during known path scanning.</p>
+<hr />
+<p><strong>ZSKNACCM</strong></p>
+<p>Maximum allowable acceleration in the Z axis during known path scanning.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "toc.follow", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "search.suggest", "search.highlight", "search.share"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../../assets/js/welcome.js"></script>
+      
+        <script src="../../../../../assets/js/enhance.js"></script>
+      
+    
+  </body>
+</html>
