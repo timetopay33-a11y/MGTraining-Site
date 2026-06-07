@@ -106,7 +106,6 @@ nav:
   - Documentation:
       - Hardware:
           - Ballbar: documentation/hardware/ballbar/ballbar.md
-          - Squareness (Ballbar): documentation/hardware/ballbar/squareness.md
           - Probehead: documentation/hardware/probehead/probehead.md
           - Squaring a Probehead: documentation/hardware/probehead/phsquare/phsquare.md
           - Servo Amps: documentation/hardware/servoamps/servoamps.md

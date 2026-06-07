@@ -1,0 +1,499 @@
+/* =====================================================================
+   MG / WWCSI Training Docs — custom theme
+   Built on Material for MkDocs. Organised top-down:
+   1) Brand tokens  2) Header/logo  3) Hero  4) Grid cards
+   5) Admonitions  6) Tables/typography  7) Buttons  8) Misc helpers
+   ===================================================================== */
+
+/* ---------- 1) Brand tokens ---------------------------------------- */
+:root {
+  --mg-orange: #ff5a1f;          /* blood-orange brand accent      */
+  --mg-orange-deep: #e23e08;
+  --mg-radius: 0.7rem;
+}
+
+/* Dark scheme: near-black surfaces + blood-orange accent */
+[data-md-color-scheme="slate"] {
+  --md-accent-fg-color: var(--mg-orange);
+  --md-accent-fg-color--transparent: rgba(255, 90, 31, 0.1);
+  --md-typeset-a-color: #ff7a4d;
+  --md-default-bg-color: #0e0f11;
+  --md-code-bg-color: #16181b;
+  --md-default-fg-color--lightest: rgba(255, 255, 255, 0.06);
+}
+
+/* Light scheme: warm accent on clean white */
+[data-md-color-scheme="default"] {
+  --md-accent-fg-color: var(--mg-orange-deep);
+  --md-typeset-a-color: var(--mg-orange-deep);
+}
+
+/* Tighten the very wide default content column a touch for readability */
+.md-grid {
+  max-width: 64rem;
+}
+
+/* ---------- 2) Header / logo --------------------------------------- */
+/* Original set 64px which crowds the bar; 38px is crisp and balanced. */
+.md-header__button.md-logo img {
+  height: 38px;
+  width: auto;
+}
+
+.md-header {
+  box-shadow: 0 1px 0 var(--md-default-fg-color--lightest);
+}
+
+/* Accent underline on the active top-level tab */
+.md-tabs__item--active .md-tabs__link {
+  position: relative;
+  opacity: 1;
+}
+.md-tabs__item--active .md-tabs__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.55rem;
+  height: 2px;
+  background: var(--md-accent-fg-color);
+  border-radius: 2px;
+}
+
+/* ---------- 3) Home hero ------------------------------------------- */
+.mg-hero {
+  margin: 0 0 2rem;
+  padding: 2.4rem 2rem;
+  border-radius: var(--mg-radius);
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(255, 90, 31, 0.16), transparent 55%),
+    linear-gradient(160deg, var(--md-default-fg-color--lightest), transparent 70%);
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+.mg-hero h1 {
+  margin: 0 0 0.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.mg-hero p {
+  margin: 0;
+  max-width: 42rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+.mg-hero .mg-hero__cta {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* ---------- 4) Grid cards ------------------------------------------ */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid > .card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: var(--mg-radius);
+  padding: 1rem 1.1rem;
+  transition: border-color 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+}
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: color-mix(in srgb, var(--md-accent-fg-color) 55%, transparent);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+}
+/* Lead icon in a card title */
+.md-typeset .grid.cards .twemoji svg,
+.md-typeset .grid.cards .twemoji {
+  height: 1.45rem;
+  width: 1.45rem;
+  fill: var(--md-accent-fg-color);
+  vertical-align: -0.3rem;
+}
+/* Thumbnail images inside cards (videos): uniform, rounded, fill width */
+.md-typeset .grid.cards img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.45rem;
+  display: block;
+}
+.md-typeset .grid.cards a img {
+  transition: opacity 0.15s ease, transform 0.2s ease;
+}
+.md-typeset .grid.cards a:hover img {
+  opacity: 0.9;
+  transform: scale(1.01);
+}
+
+/* ---------- 5) Admonitions ----------------------------------------- */
+/* Register a custom "announcement" type (was used but undefined). */
+:root {
+  --md-admonition-icon--announcement: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 11v2h4v-2h-4M16 15.71l3.2 2.4.6-.8-3.2-2.4-.6.8M16.8 6.69l3.2-2.4-.6-.8L16 5.89l.8.8M2 9a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1v4h2v-4h1l5 3V6L6 9H2m9.5 3c0-1.33-.58-2.53-1.5-3.35v6.69c.92-.81 1.5-2.01 1.5-3.34Z"/></svg>');
+}
+.md-typeset .admonition.announcement,
+.md-typeset details.announcement {
+  border-color: var(--md-accent-fg-color);
+}
+.md-typeset .announcement > .admonition-title,
+.md-typeset .announcement > summary {
+  background-color: color-mix(in srgb, var(--md-accent-fg-color) 12%, transparent);
+}
+.md-typeset .announcement > .admonition-title::before,
+.md-typeset .announcement > summary::before {
+  background-color: var(--md-accent-fg-color);
+  -webkit-mask-image: var(--md-admonition-icon--announcement);
+          mask-image: var(--md-admonition-icon--announcement);
+}
+
+/* Slightly rounder admonitions across the board */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 0.45rem;
+}
+
+/* ---------- 6) Tables & typography --------------------------------- */
+.md-typeset table:not([class]) {
+  border-radius: 0.45rem;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--md-default-fg-color--lightest);
+}
+.md-typeset table:not([class]) th {
+  background: var(--md-default-fg-color--lightest);
+  font-weight: 700;
+}
+.md-typeset table:not([class]) tr:hover {
+  background: color-mix(in srgb, var(--md-accent-fg-color) 6%, transparent);
+}
+
+/* Horizontal rules: lighter, used heavily as section separators here */
+.md-typeset hr {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* Headings get a touch more presence */
+.md-typeset h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- 7) Buttons --------------------------------------------- */
+/* Base download button */
+.md-typeset .md-button.download-button {
+  background: transparent;
+  color: #1678e9;
+  border: 2px solid #1565c0;
+  border-radius: 6px;
+  padding: 0.1rem 0.8rem;
+  font-weight: 400;
+  font-size: 0.8rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.08s ease;
+}
+.md-typeset .md-button.download-button:hover {
+  background-color: #1678e9;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+.md-typeset .md-button.download-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* FIX: full-width was 10% (broken). Now actually full width. */
+.md-typeset .md-button.full-width {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* Primary brand button (used in hero) */
+.md-typeset .md-button.mg-primary {
+  background: var(--md-accent-fg-color);
+  color: #fff;
+  border-color: var(--md-accent-fg-color);
+}
+.md-typeset .md-button.mg-primary:hover {
+  background: var(--mg-orange-deep);
+  border-color: var(--mg-orange-deep);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ---------- 8) Misc helpers (kept from original) ------------------- */
+/* Responsive video embeds */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  border-radius: 0.5rem;
+}
+.video-container iframe,
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ghost-style back button */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1;
+  color: var(--md-default-fg-color);
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--md-default-fg-color) 18%, transparent);
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+}
+.back-btn:hover {
+  background: color-mix(in srgb, var(--md-default-fg-color) 7%, transparent);
+  border-color: color-mix(in srgb, var(--md-default-fg-color) 28%, transparent);
+}
+.back-btn:active { transform: translateY(1px); }
+.back-btn:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 3px;
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+.back-inline {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--md-default-fg-color);
+  opacity: 0.7;
+  padding: 0.2rem 0.45rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+.back-inline:hover {
+  background: color-mix(in srgb, var(--md-default-fg-color) 8%, transparent);
+  opacity: 1;
+}
+.page-title h1 { margin: 0; }
+
+/* =====================================================================
+   CLOUDFLARE-STYLE THEME
+   Retunes the dark scheme + chrome to resemble Cloudflare Docs.
+   Colours sampled from the reference: bg #181818, accent #f6821f.
+   ===================================================================== */
+
+/* Brand orange → Cloudflare orange (overrides the earlier tokens) */
+:root {
+  --mg-orange: #f6821f;
+  --mg-orange-deep: #e1670a;
+}
+
+/* ---- Dark scheme tokens (the default look) ----------------------- */
+[data-md-color-scheme="slate"] {
+  --md-hue: 0;
+  --md-default-bg-color: #181818;
+  --md-default-fg-color: hsla(0, 0%, 100%, 0.86);
+  --md-default-fg-color--light: hsla(0, 0%, 100%, 0.62);
+  --md-default-fg-color--lighter: hsla(0, 0%, 100%, 0.34);
+  --md-default-fg-color--lightest: hsla(0, 0%, 100%, 0.10);
+
+  --md-primary-fg-color: #181818;   /* header / tabs / footer */
+  --md-primary-bg-color: #ededed;
+  --md-primary-bg-color--light: hsla(0, 0%, 100%, 0.7);
+
+  --md-accent-fg-color: var(--mg-orange);
+  --md-accent-fg-color--transparent: rgba(246, 130, 31, 0.1);
+  --md-typeset-a-color: var(--mg-orange);
+
+  --md-code-bg-color: #2b2b29;
+  --md-code-fg-color: #e8e6e3;
+}
+
+/* Pure-white headings, like the reference */
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3,
+[data-md-color-scheme="slate"] .md-typeset h4 {
+  color: #fff;
+}
+
+/* Light scheme keeps the orange accent */
+[data-md-color-scheme="default"] {
+  --md-accent-fg-color: var(--mg-orange-deep);
+  --md-typeset-a-color: var(--mg-orange-deep);
+}
+
+/* ---- Header & top tabs ------------------------------------------- */
+.md-header {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  box-shadow: none;
+}
+.md-tabs {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+.md-tabs__link {
+  opacity: 0.72;
+  font-weight: 500;
+  transition: opacity 0.15s ease;
+}
+.md-tabs__link:hover { opacity: 1; }
+.md-tabs__item--active .md-tabs__link { opacity: 1; font-weight: 600; }
+
+/* "Ctrl K" hint badge inside the search box (cosmetic; the shortcut is
+   wired up for real in enhance.js) */
+.md-search__form { position: relative; }
+.md-search__form::after {
+  content: "Ctrl K";
+  position: absolute;
+  right: 0.55rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--md-default-fg-color--light);
+  background: color-mix(in srgb, var(--md-default-fg-color) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--md-default-fg-color) 24%, transparent);
+  border-radius: 0.3rem;
+  padding: 0.1rem 0.34rem;
+  pointer-events: none;
+}
+.md-search__form:focus-within::after { display: none; }
+
+/* ---- Left sidebar ------------------------------------------------- */
+.md-nav__link { color: var(--md-default-fg-color--light); }
+.md-nav__link:hover,
+.md-nav__link:focus { color: var(--md-default-fg-color); }
+.md-nav__item .md-nav__link--active,
+.md-nav__item--active > .md-nav__link {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ---- Right TOC: "On this page" + orange active marker ------------- */
+.md-sidebar--secondary .md-nav__title {
+  font-size: 0;                 /* hide the original "Table of contents" */
+}
+.md-sidebar--secondary .md-nav__title::after {
+  content: "On this page";
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--md-default-fg-color);
+}
+.md-sidebar--secondary .md-nav__link {
+  border-left: 2px solid transparent;
+  padding-left: 0.7rem;
+  transition: color 0.12s ease, border-color 0.12s ease;
+}
+.md-sidebar--secondary .md-nav__link--active {
+  color: #fff;
+  font-weight: 600;
+  border-left-color: var(--md-accent-fg-color);
+}
+
+/* ---- Content links: coloured, no underline ----------------------- */
+.md-typeset a:not(.md-button):not(.back-inline):not(.back-btn):not(.md-tag) {
+  text-decoration: none;
+}
+.md-typeset a:not(.md-button):hover {
+  color: var(--md-accent-fg-color);
+  text-decoration: none;
+}
+
+/* ---- Code blocks: warm dark, subtle border ----------------------- */
+.md-typeset pre > code,
+.md-typeset .highlight {
+  border-radius: 0.5rem;
+}
+.md-typeset code {
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* ---- Floating orange "back to top" (bottom-right circle) ---------- */
+.md-top {
+  position: fixed;
+  top: auto;
+  left: auto;
+  bottom: 1.4rem;
+  right: 1.4rem;
+  margin: 0;
+  transform: none;
+  width: 2.6rem;
+  height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--md-accent-fg-color);
+  color: #fff;
+  font-size: 0;                 /* hide the "Back to top" label */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  z-index: 6;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+.md-top[hidden] { display: flex; }   /* keep it always visible */
+.md-top:hover {
+  background: var(--mg-orange-deep);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.md-top svg { width: 1.25rem; height: 1.25rem; }
+
+/* ---- "Was this page helpful?" feedback widget -------------------- */
+.md-feedback__title { font-weight: 700; }
+.md-feedback__icon:hover { color: var(--md-accent-fg-color); }
+
+/* Keep the home hero readable on the new near-black background */
+[data-md-color-scheme="slate"] .mg-hero {
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(246, 130, 31, 0.18), transparent 55%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.05), transparent 70%);
+}
+
+/* Force the back-to-top button to stay visible (Cloudflare keeps it pinned) */
+.md-top,
+.md-top[hidden] {
+  display: flex !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: none !important;
+}
+.md-top:hover { transform: translateY(-2px) !important; }
+
+/* Reveal the feedback widget and give it a clean divider */
+.md-feedback[hidden] { display: block; }
+.md-feedback {
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+.md-feedback fieldset { border: 0; margin: 0; padding: 0; }
+
+/* Buttons: neutral ghost outline, orange on hover; primary stays solid orange */
+.md-typeset .md-button {
+  color: var(--md-default-fg-color);
+  border-color: var(--md-default-fg-color--lighter);
+}
+.md-typeset .md-button:hover,
+.md-typeset .md-button:focus {
+  background: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+  color: #fff;
+}
+.md-typeset .md-button.mg-primary { color: #fff; border-color: var(--md-accent-fg-color); }

@@ -1,0 +1,4842 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Internal training and troubleshooting documentation for MG / WWCSI metrology systems — hardware, software, procedures, and step-by-step guides.">
+      
+      
+      
+        <link rel="canonical" href="https://docs.mgtraining.net/Home/cursed/">
+      
+      
+        <link rel="prev" href="../../training/start/">
+      
+      
+        <link rel="next" href="../travel/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../Dark-Logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Cursed - MG / WWCSI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--announcement:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%208H4a2%202%200%200%200-2%202v4a2%202%200%200%200%202%202h1v4a1%201%200%200%200%201%201h2a1%201%200%200%200%201-1v-4h3l5%204V4zm9.5%204c0%201.71-.96%203.26-2.5%204V8c1.53.75%202.5%202.3%202.5%204%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#acr3-autochange-rack-system" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="MG / WWCSI" class="md-header__button md-logo" aria-label="MG / WWCSI" data-md-component="logo">
+      
+  <img src="../../Dark-Logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MG / WWCSI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cursed
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../documentation/hardware/ballbar/ballbar/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Documentation
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../videos/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Videos
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sim/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Simulation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../training/start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Training
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Random
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="MG / WWCSI" class="md-nav__button md-logo" aria-label="MG / WWCSI" data-md-component="logo">
+      
+  <img src="../../Dark-Logo.png" alt="logo">
+
+    </a>
+    MG / WWCSI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/hardware/ballbar/ballbar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ballbar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/hardware/ballbar/squareness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Squareness (Ballbar)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/hardware/probehead/probehead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Probehead
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/hardware/probehead/phsquare/phsquare/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Squaring a Probehead
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/hardware/servoamps/servoamps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servo Amps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/hardware/servoamps/eurocard/eurocard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eurocard Tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/hardware/soldering/soldering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Soldering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/software/CMEScommands/CMEScommands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CMES Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/software/variables/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/software/variables/camio/camioconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camio Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step By Steps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Step By Steps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/stepbysteps/sub/Calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/stepbysteps/sub/laserstraight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laser Straightness Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/stepbysteps/sub/soldering/soldering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Soldering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/stepbysteps/sub/TCAlignment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Twin Column Alignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Procedures
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Procedures
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/Procedures/calibration/calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Important
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Important
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../important/licenseupdates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License Updates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../important/remotekeys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remote Keys & IDs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../important/links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../important/videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference Videos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Training
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Training
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../training/start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Random
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Random
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cursed
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cursed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#acr3-autochange-rack-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACR3 autochange rack system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disclaimer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disclaimer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trademarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trademarks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acr3-autochange-rack-system_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACR3 autochange rack system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#care-of-equipment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Care of equipment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changes-to-renishaw-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changes to Renishaw products
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warranty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Warranty
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#patents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec-declaration-of-conformity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC DECLARATION OF CONFORMITY
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        F
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DK
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FIN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-system-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 System description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-general-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 General description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-acr3-autochange-rack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 ACR3 autochange rack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-4-acr3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 4 - ACR3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-modular-rack-stand-mrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Modular rack stand (MRS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-compatible-renishaw-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Compatible Renishaw products
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#241-heads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 Heads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#242-probes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.2 Probes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-head-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Head alignment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-alignment-of-the-probe-head-roll" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Alignment of the probe head - roll
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-alignment-of-probe-head-pitch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Alignment of probe head – pitch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-alignment-of-the-probe-head-yaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Alignment of the probe head - yaw
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-am1-adjustable-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 AM1 adjustable module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#341-adjusting-the-am1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.1 Adjusting the AM1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-am2-adjustment-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 AM2 adjustment module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#351-adjusting-the-am2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.1 Adjusting the AM2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-fitting-the-acr3-to-the-mrs-rack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Fitting the ACR3 to the MRS rack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-fitting-a-four-port-acr3-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Fitting a four port ACR3 system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-fitting-an-eight-port-acr3-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Fitting an eight port ACR3 system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-datuming-the-acr3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 Datuming the ACR3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-locating-the-z-position-of-the-acr3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Locating the z position of the ACR3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-locating-the-x-position-of-the-acr3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Locating the x position of the ACR3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-locating-the-y-position-of-the-acr3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Locating the y position of the ACR3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#probe-z-offset-z-axis-of-point-a-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        probe Z offset = Z axis of Point A * – 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#probe-x-offset-x-axis-of-point-b-42-mm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        probe X offset = X axis of Point B – 42 mm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-25-locating-the-y-position-of-acr3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 25 - Locating the y position of ACR3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#probe-y-offset-y-axis-position-of-point-c-626-mm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        probe Y offset = Y axis position of point C – 62.6 mm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-acr3-change-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 ACR3 change routine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        !
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#61-load-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Load routine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-unload-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Unload routine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-accessoriesspare-parts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 Accessories/spare parts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acr3-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACR3 system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spares
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mrs-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MRS system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spares_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spares
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scp600-stylus-change-port-for-the-sp600-probe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SCP600 (stylus change port for the SP600 probe)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spares_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spares
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 Maintenance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#91-port-replacement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Port replacement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#92-cleaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Cleaning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-system-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 System dimensions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#101-4-port-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 4 port system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#102-8-port-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 8 port system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acr3-autochange-rack-system_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACR3 autochange rack system
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../travel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#acr3-autochange-rack-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACR3 autochange rack system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disclaimer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disclaimer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trademarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trademarks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acr3-autochange-rack-system_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACR3 autochange rack system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#care-of-equipment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Care of equipment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changes-to-renishaw-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changes to Renishaw products
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warranty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Warranty
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#patents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec-declaration-of-conformity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC DECLARATION OF CONFORMITY
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        F
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DK
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FIN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-system-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 System description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-general-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 General description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-acr3-autochange-rack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 ACR3 autochange rack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-4-acr3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 4 - ACR3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-modular-rack-stand-mrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Modular rack stand (MRS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-compatible-renishaw-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Compatible Renishaw products
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#241-heads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 Heads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#242-probes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.2 Probes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-head-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Head alignment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-alignment-of-the-probe-head-roll" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Alignment of the probe head - roll
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-alignment-of-probe-head-pitch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Alignment of probe head – pitch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-alignment-of-the-probe-head-yaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Alignment of the probe head - yaw
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-am1-adjustable-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 AM1 adjustable module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#341-adjusting-the-am1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.1 Adjusting the AM1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-am2-adjustment-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 AM2 adjustment module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#351-adjusting-the-am2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.1 Adjusting the AM2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-fitting-the-acr3-to-the-mrs-rack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Fitting the ACR3 to the MRS rack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-fitting-a-four-port-acr3-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Fitting a four port ACR3 system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-fitting-an-eight-port-acr3-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Fitting an eight port ACR3 system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-datuming-the-acr3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 Datuming the ACR3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-locating-the-z-position-of-the-acr3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Locating the z position of the ACR3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-locating-the-x-position-of-the-acr3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Locating the x position of the ACR3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-locating-the-y-position-of-the-acr3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Locating the y position of the ACR3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#probe-z-offset-z-axis-of-point-a-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        probe Z offset = Z axis of Point A * – 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#probe-x-offset-x-axis-of-point-b-42-mm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        probe X offset = X axis of Point B – 42 mm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-25-locating-the-y-position-of-acr3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure 25 - Locating the y position of ACR3
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#probe-y-offset-y-axis-position-of-point-c-626-mm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        probe Y offset = Y axis position of point C – 62.6 mm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-acr3-change-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 ACR3 change routine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        !
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#61-load-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Load routine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-unload-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Unload routine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-accessoriesspare-parts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 Accessories/spare parts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acr3-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACR3 system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spares
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mrs-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MRS system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spares_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spares
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scp600-stylus-change-port-for-the-sp600-probe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SCP600 (stylus change port for the SP600 probe)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spares_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spares
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 Maintenance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#91-port-replacement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Port replacement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#92-cleaning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Cleaning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-system-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 System dimensions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#101-4-port-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 4 port system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#102-8-port-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 8 port system
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acr3-autochange-rack-system_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACR3 autochange rack system
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div class="page-title">
+  <a href="javascript:history.back()" class="back-inline" aria-label="Back">←</a>
+  <h1>Cursed</h1>
+</div>
+
+<p>If you'd like your image added lmk!</p>
+<hr />
+<p><strong>Installation and user’s guide</strong> H-1000-5087-01-A </p>
+<p><strong>Renishaw plc T</strong> +44 (0)1453 524524 New Mills, Wotton-under-Edge, <strong>F</strong> +44 (0)1453 524901 Gloucestershire, GL12 8JR <strong>E</strong> uk@renishaw.com United Kingdom www.renishaw.com </p>
+<h2 id="acr3-autochange-rack-system"><strong>ACR3 autochange rack system</strong></h2>
+<p><strong>For worldwide contact details, please visit our main website at www.renishaw.com/contact</strong> </p>
+<p>© 2002 Renishaw plc. All rights reserved. </p>
+<p>Renishaw® is a registered trademark of Renishaw plc. </p>
+<p>This document may not be copied or reproduced in whole or in part, or transferred to any other media or language, by any means, without the prior written permission of Renishaw. </p>
+<p>The publication of material within this document does not imply freedom from the patent rights of Renishaw plc. </p>
+<h2 id="disclaimer"><strong>Disclaimer</strong></h2>
+<p>Considerable effort has been made to ensure that the contents of this document are free from inaccuracies and omissions. However, Renishaw makes no warranties with respect to the contents of this document and specifically disclaims any implied warranties. Renishaw reserves the right to make changes to this document and to the product described herein without obligation to notify any person of such changes. </p>
+<h2 id="trademarks"><strong>Trademarks</strong></h2>
+<p>All brand names and product names used in this document are trade names, service marks, trademarks, or registered trademarks of their respective owners. </p>
+<p>Renishaw part no:   H-1000-5087-01-A </p>
+<p>Issued:   12 2002 </p>
+<p><strong>1</strong> </p>
+<h2 id="acr3-autochange-rack-system_1"><strong>ACR3 autochange rack system</strong></h2>
+<p><strong>Installation and user’s guide</strong> </p>
+<p><strong>2</strong> </p>
+<h2 id="care-of-equipment"><strong>Care of equipment</strong></h2>
+<p>Renishaw probes and associated systems are precision tools used for obtaining precise measurements and must therefore be treated with care. </p>
+<h2 id="changes-to-renishaw-products"><strong>Changes to Renishaw products</strong></h2>
+<p>Renishaw reserves the right to improve, change or modify its hardware or software without incurring any obligations to make changes to Renishaw equipment previously sold. </p>
+<h2 id="warranty"><strong>Warranty</strong></h2>
+<p>Renishaw plc warrants its equipment for a limited period (as set out in our Standard Terms and Conditions of Sale) provided that it is installed exactly as defined in associated Renishaw documentation. </p>
+<p>Prior consent must be obtained from Renishaw if non-Renishaw equipment (e.g. interfaces and/or cabling) is to be used or substituted. Failure to comply with this will invalidate the Renishaw warranty. </p>
+<p>Claims under warranty must be made from authorised Service Centres only, which may be advised by the supplier or distributor. </p>
+<h2 id="patents"><strong>Patents</strong></h2>
+<p>Features of Renishaw’s ACR3 autochange rack system and associated equipment are the subjects of the patents and patent applications listed below: </p>
+<p>EP 0142373 JP 2,098,080 US 4651405 TW UM-099300 EP 0293036 JP 2,510,804 US 4813151 EP 0243766 JP 2,545,082 US 4817362 EP 0388993 JP 2,539,824 US 5,084,981 EP 0392660 JP 2,994,422 US 5,088,337 EP 0392699 JP 3,018,015 US 5,339,535 EP 0544854 JP 3,101,322 US 5,323,540 EP 0501710 JP 501,776/1994 US 5,345,689 EP 0750171 JP 503,652/1994 US 5,404,649 EP 0826136 JP 505,622/1999 US 5,505,005 EP 242747 B US 5,918,378 EP 548328 B </p>
+<p><strong>3</strong> </p>
+<h2 id="ec-declaration-of-conformity"><strong>EC DECLARATION OF CONFORMITY</strong></h2>
+<p>Renishaw plc declare that the product: - </p>
+<p>Name: ACR3 Description: Autochange rack Part no. A-5036-0005 </p>
+<p>has been manufactured in conformity with the following standards: - </p>
+<p>BS EN 292-1:1991 Safety of machinery - Basic concepts, general BS EN 292-2:1991 principles for design: - Part 1. Basic terminology, methodology. Part 2. Technical principles and specifications. </p>
+<p>This product must not be put into service until the machinery into which it is to be incorporated has been declared in conformity with the provisions of the Machinery Directive - 98/37/EC. </p>
+<p>Signature......................................................... 7, Bs be KOS David R. Whittle Laboratory Services Supervisor Group Engineering Division Renishaw PLC </p>
+<p>Dated: 18[th] October 2002 </p>
+<p>Reference no. ECD2002/17 </p>
+<p><strong>4</strong> Warnings </p>
+<h2 id="gb"><strong>GB</strong></h2>
+<p>Pinch hazards exist between moving parts and between moving and static parts. Do not hold the probe head during movements, or during manual probe changes. </p>
+<p>In all applications involving the use of machine tools or CMMs, eye protection is recommended. </p>
+<p>Beware of unexpected movement.  The user should remain outside of the full working envelope of Probe Head/Extension/Probe combinations. </p>
+<p>Remove power before performing any maintenance operations. </p>
+<p>For instructions regarding the safe cleaning of Renishaw products, refer to the Maintenance section of the relevant product documentation. </p>
+<p>It is the machine supplier’s responsibility to ensure that the user is made aware of any hazards involved in operation, including those mentioned in Renishaw product documentation, and to ensure that adequate guards and safety interlocks are provided. </p>
+<p>Avertissements </p>
+<p><strong>5</strong> </p>
+<h2 id="f"><strong>F</strong></h2>
+<p>L’effet de pincement dû au mouvement des pièces mobiles entre elles ou avec des pièces fixes présente des dangers. Ne pas tenir la tête du palpeur lorsqu’elle se déplace ou que le palpeur est changé à la main. </p>
+<p>Le port de lunettes de protection est recommandé pour toute application sur machine-outil et MMC. </p>
+<p>Attention aux mouvements brusques. L'utilisateur doit toujours rester en dehors de la zone de sécurité des installations multiples Tête de Palpeur/ Rallonge/Palpeur. </p>
+<p>Mettre la machine hors tension avant d'entreprendre toute opération de maintenance. </p>
+<p>Les conseils de nettoyage en toute sécurité des produits Renishaw figurent dans la section MAINTENANCE de votre documentation. </p>
+<p>Il incombe au fournisseur de la machine d’assurer que l’utilisateur prenne connaissance des dangers d’exploitation, y compris ceux décrits dans la documentation du produit Renishaw, et d’assurer que des protections et verrouillages de sûreté adéquats soient prévus. </p>
+<p><strong>6</strong> Achtung </p>
+<h2 id="d"><strong>D</strong></h2>
+<p>Zwischen beweglichen und zwischen beweglichen und statischen Teilen besteht eine Einklemmgefahr. Den Meßtasterkopf nicht anfassen, wenn er sich bewegt oder wenn ein manueller Meßtasterwechsel durchgeführt wird. </p>
+<p>Bei der Bedienung von Werkzeugmaschinen oder Koordinatenmeßanlagen ist Augenschutz empfohlen. </p>
+<p>Auf unerwartete Bewegungen achten.  Der Anwender sol sich immer außerhalb des Meßtasterkopf-Arm-Meßtaster-Bereichs aufhalten. </p>
+<p>Bevor Wartungsarbeiten begonnen werden, muß erst die Stromversorgung getrennt werden. </p>
+<p>Anleitungen über die sichere Reinigung von Renishaw-Produkten sind in Kapitel MAINTENANCE (WARTUNG) in der Produktdokumentation enthalten. </p>
+<p>Es obliegt dem Maschinenlieferanten, den Anwender über alle Gefahren, die sich aus dem Betrieb der Ausrüstung, einschließlich der, die in der Renishaw Produktdokumentation erwähnt sind, zu unterrichten und zu versichern, daß ausreichende Sicherheitsvorrichtungen und Verriegelungen eingebaut sind. </p>
+<p>Avvertenze </p>
+<p><strong>7</strong> </p>
+<h2 id="i"><strong>I</strong></h2>
+<p>Tra le parti in moto o tra le parti in moto e quelle ferme esiste effettivamente il pericolo di farsi del male pizzicandorsi. Evitare di afferrare la testina della sonda quando è in moto, oppure quando si effettuano spostamenti a mano. </p>
+<p>Si raccomanda di indossare occhiali di protezione in applicazioni che comportano macchine utensili e macchine per misurare a coordinate. </p>
+<p>Fare attenzione ai movimenti inaspettati.  Si raccomanda all'utente di tenersi al di fuori dell’involucro operativo della testina della sonda, prolunghe e altre varianti della sonda. </p>
+<p>Prima di effettuare qualsiasi intervento di manutenzione, isolare dall’alimentazione di rete. </p>
+<p>Per le istruzioni relative alla pulizia dei prodotti Renishaw, fare riferimento alla sezione MAINTENANCE (MANUTENZIONE) della documentazione del prodotto. </p>
+<p>Il fornitore della macchina ha la responsabilità di avvertire l’utente dei pericoli inerenti al funzionamento della stessa, compresi quelli riportati nelle istruzioni della Renishaw, e di mettere a disposizione i ripari di sicurezza e gli interruttori di esclusione. </p>
+<p><strong>8</strong> Advertencias </p>
+<h2 id="e"><strong>E</strong></h2>
+<p>Existe el peligro de atraparse los dedos entre las distintas partes móviles y entre partes móviles e inmóviles. No sujetar la cabeza de la sonda mientras se mueve, ni durante los cambios manuales de la sonda. </p>
+<p>Se recomienda usar protección para los ojos en todas las aplicaciones que implican el uso de máquinas herramientas y máquinas de medición de coordenadas. </p>
+<p>Tener cuidado con los movimientos inesperados. El usuario debe quedarse fuera del grupo operativo completo compuesto por la cabeza de sonda/ extensión/sonda o cualquier combinación de las mismas. </p>
+<p>Quitar la corriente antes de emprender cualquier operación de mantenimiento. </p>
+<p>Para instrucciones sobre seguridad a la hora de limpiar los productos Renishaw, remitirse a la sección titulada MAINTENANCE (MANTENIMIENTO) en la documentación sobre el producto. </p>
+<p>Corresponde al proveedor de la máquina asegurar que el usuario esté consciente de cualquier peligro que implica el manejo de la máquina, incluyendo los que se mencionan en la documentación sobre los productos Renishaw y le corresponde también asegurarse de proporcionar dispositivos de protección y dispositivos de bloqueo de seguridad adecuados. </p>
+<p>Avisos <strong>9</strong> </p>
+<h2 id="p"><strong>P</strong></h2>
+<p>Figo de constrição entre peças móveis e entre peças móveis e estáticas. Não segurar a cabeça da sonda durante o movimento ou durante mudanças manuais de sonda. </p>
+<p>Em todas as aplicações que envolvam a utilização de máquinas-ferramenta e CMMs, recomenda-se usar protecção para os olhos. </p>
+<p>Tomar cuidado com movimento inesperado. O utilizador deve permanecer fora do perímetro da área de trabalho das combinações Cabeça da Sonda/ Extensão/ Sonda. </p>
+<p>Desligar a alimentação antes de efectuar qualquer operação de manutenção. </p>
+<p>Para instruções relativas à limpeza segura de produtos Renishaw, consultar a secção MAINTENANCE (MANUTENÇÃO) da documentação do produto. </p>
+<p>É responsabilidade do fornecedor da máquina assegurar que o utilizador é consciencializado de quaisquer perigos envolvidos na operação, incluindo os mencionados na documentação do produto Renishaw e assegurar que são fornecidos resguardos e interbloqueios de segurança adequados. </p>
+<p><strong>10</strong> Advarsler </p>
+<h2 id="dk"><strong>DK</strong></h2>
+<p>Der er risiko for at blive klemt mellem bevægelige dele og mellem bevægelige og statiske dele. Hold ikke sondehovedet under bevægelse eller under manuelle sondeskift. </p>
+<p>I alle tilfælde, hvor der anvendes værktøjs- og koordinatmålemaskiner, anbefales det at bære øjenbeskyttelse. </p>
+<p>Pas på uventede bevægelser. Brugeren bør holde sig uden for hele sondehovedets/forlængerens/sondens arbejdsområde. </p>
+<p>Afbryd strømforsyningen, før der foretages vedligeholdelse. </p>
+<p>Se afsnittet MAINTENANCE (VEDLIGEHOLDELSE) i produktdokumentationen for at få instruktioner til sikker rengøring af Renishawprodukter. </p>
+<p>Det er maskinleverandørens ansvar at sikre, at brugeren er bekendt med eventuelle risici i forbindelse med driften, herunder de risici, som er nævnt i Renishaws produktdokumentation, og at sikre, at der er tilstrækkelig afskærmning og sikkerhedsblokeringer. </p>
+<p>Waarschuwingen </p>
+<p><strong>11</strong> </p>
+<h2 id="nl"><strong>NL</strong></h2>
+<p>Er is risico op klemmen tussen de bewegende onderdelen onderling en tussen bewegende en niet-bewegende onderdelen. De sondekop tijdens beweging of tijdens manuele sondeveranderingen niet vasthouden. </p>
+<p>Het dragen van oogbescherming wordt tijdens gebruik van machinewerktuigen en CMM’s aanbevolen. </p>
+<p>Oppassen voor onverwachte beweging. De gebruiker dient buiten het werkende signaalveld van de Sondekop/Extensie/Sonde combinaties te blijven. </p>
+<p>Voordat u enig onderhoud verricht dient u de stroom uit te schakelen. </p>
+<p>Voor het veilig reinigen van Renishaw produkten wordt verwezen naar het hoofdstuk MAINTENANCE (ONDERHOUD) in de produktendocumentatie. </p>
+<p>De leverancier van de machine is ervoor verantwoordelijk dat de gebruiker op de hoogte wordt gesteld van de risico’s die verbonden zijn aan bediening, waaronder de risico’s die vermeld worden in de </p>
+<p>produktendocumentatie van Renishaw. De leverancier dient er tevens voor te zorgen dat de gebruiker is voorzien van voldoende beveiligingen en veiligheidsgrendelinrichtingen. </p>
+<p><strong>12</strong> Varning </p>
+<h2 id="sw"><strong>SW</strong></h2>
+<p>Risk för klämning existerar mellan rörliga delar och mellan rörliga och stillastående delar. Håll ej i sondens huvud under rörelse eller under manuella sondbyten. </p>
+<p>Ögonskydd rekommenderas för alla tillämpningar som involverar bruket av maskinverktyg och CMM. </p>
+<p>Se upp för plötsliga rörelser. Användaren bör befinna sig utanför arbetsområdet för sondhuvudet/förlängningen/sond-kombinationerna. </p>
+<p>Koppla bort strömmen innan underhåll utförs. </p>
+<p>För instruktioner angående säker rengöring av Renishaws produkter, se avsnittet MAINTENANCE (UNDERHÅLL) i produktdokumentationen. </p>
+<p>Maskinleverantören ansvarar för att användaren informeras om de risker som drift innebär, inklusive de som nämns i Renishaws produktdokumentation, samt att tillräckligt goda skydd och säkerhetsförreglingar tillhandahålls. </p>
+<p>Varoituksia <strong>13</strong> </p>
+<h2 id="fin"><strong>FIN</strong></h2>
+<p>Liikkuvien osien sekä liikkuvien ja staattisten osien välillä on olemassa puristusvaara. Älä pidä kiinni anturin päästä sen liikkuessa tai vaihtaessasi anturia käsin. </p>
+<p>Kaikkia työstökoneita ja koordinoituja mittauskoneita (CMM) käytettäessä suositamme silmäsuojuksia. </p>
+<p>Varo äkillistä liikettä.  Käyttäjän tulee pysytellä täysin anturin pään/jatkeen/ anturin yhdistelmiä suojaavan toimivan kotelon ulkopuolella. </p>
+<p>Kytke pois sähköverkosta ennen huoltotoimenpiteitä. </p>
+<p>Renishaw-tuotteiden turvalliset puhdistusohjeet löytyvät tuoteselosteen MAINTENANCE (HUOLTOA) koskevasta osasta. </p>
+<p>Koneen toimittaja on velvollinen selittämään käyttäjälle mahdolliset käyttöön liittyvät vaarat, mukaan lukien Renishaw’n tuoteselosteessa mainitut vaarat. Toimittajan tulee myös varmistaa, että toimitus sisältää riittävän määrän suojia ja lukkoja. </p>
+<p><strong>14</strong> </p>
+<p>Contents </p>
+<p><strong>15</strong> </p>
+<h2 id="contents"><strong>Contents</strong></h2>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>Introduction..............................................................................................................17</th>
+<th>Introduction..............................................................................................................17</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>System description ..................................................................................................19</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>2.1</td>
+<td>General description ......................................................................................19</td>
+</tr>
+<tr>
+<td></td>
+<td>2.2</td>
+<td>ACR3 autochange rack ................................................................................21</td>
+</tr>
+<tr>
+<td></td>
+<td>2.3</td>
+<td>Modular rack stand (MRS) ...........................................................................22</td>
+</tr>
+<tr>
+<td></td>
+<td>2.4</td>
+<td>Compatible Renishaw products ...................................................................22</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>2.4.1 Heads..................................................................................................22</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>2.4.2 Probes.................................................................................................22</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Head alignment .......................................................................................................25</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>3.1</td>
+<td>Alignment of the probe head - roll................................................................26</td>
+</tr>
+<tr>
+<td></td>
+<td>3.2</td>
+<td>Alignment of the probe head - pitch .............................................................27</td>
+</tr>
+<tr>
+<td></td>
+<td>3.3</td>
+<td>Alignment of the probe head - yaw ..............................................................29</td>
+</tr>
+<tr>
+<td></td>
+<td>3.4</td>
+<td>AM1 adjustable module ...............................................................................31</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>3.4.1 Adjusting the AM1 ...............................................................................31</td>
+</tr>
+<tr>
+<td></td>
+<td>3.5</td>
+<td>AM2 adjustment module ..............................................................................33</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>3.5.1 Adjusting the AM2 ...............................................................................34</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Fitting</td>
+<td>the ACR3 to the MRS rack ...........................................................................35</td>
+</tr>
+<tr>
+<td></td>
+<td>4.1</td>
+<td>Fitting a four port ACR3 system ...................................................................35</td>
+</tr>
+<tr>
+<td></td>
+<td>4.2</td>
+<td>Fitting an eight port ACR3 system ...............................................................38</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Datuming the ACR3 ................................................................................................41</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>5.1</td>
+<td>Locating the z position of the ACR3 ............................................................41</td>
+</tr>
+<tr>
+<td></td>
+<td>5.2</td>
+<td>Locating the y position of the ACR3 ............................................................44</td>
+</tr>
+<tr>
+<td></td>
+<td>5.3</td>
+<td>Locating the x position of the ACR3 ............................................................45</td>
+</tr>
+<tr>
+<td>6</td>
+<td>ACR3</td>
+<td>change routine ..............................................................................................57</td>
+</tr>
+<tr>
+<td></td>
+<td>6.1</td>
+<td>Load routine .................................................................................................57</td>
+</tr>
+<tr>
+<td></td>
+<td>6.2</td>
+<td>Unload routine .............................................................................................58</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Troubleshooting .......................................................................................................59</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>16</strong> Contents </p>
+<table>
+<thead>
+<tr>
+<th>8</th>
+<th>Accessories / spare parts ........................................................................................61</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9</td>
+<td>Maintenance ............................................................................................................63</td>
+</tr>
+<tr>
+<td></td>
+<td>9.1<br>Port replacement..........................................................................................63</td>
+</tr>
+<tr>
+<td></td>
+<td>9.2<br>Cleaning .......................................................................................................64</td>
+</tr>
+<tr>
+<td>10</td>
+<td>System dimensions .................................................................................................65</td>
+</tr>
+<tr>
+<td></td>
+<td>10.1<br>4 port system ...............................................................................................65</td>
+</tr>
+<tr>
+<td></td>
+<td>10.2<br>8 port system ...............................................................................................66</td>
+</tr>
+</tbody>
+</table>
+<p>Introduction </p>
+<p><strong>17</strong> </p>
+<h2 id="1-introduction"><strong>1 Introduction</strong></h2>
+<p>This guide contains information relating to the installation and operation of Renishaw’s ACR3 (autochange rack) system (figure 1). </p>
+<p>This guide takes a step by step approach to fitting, aligning and datuming the rack as well as providing operational and troubleshooting guidance. </p>
+<p>System integration and software routines recommended for the successful implementation of the ACR3 are also provided. </p>
+<p><strong><mark>&gt; picture [322 x 270] intentionally omitted &lt;</mark></strong></p>
+<p><strong>Figure 1 - ACR3</strong> </p>
+<p><strong>18</strong> Introduction </p>
+<p>INTENTIONALLY, THIS PAGE HAS BEEN LEFT BLANK </p>
+<p>System description </p>
+<p><strong>19</strong> </p>
+<h2 id="2-system-description"><strong>2 System description</strong></h2>
+<h2 id="21-general-description"><strong>2.1 General description</strong></h2>
+<p>Renishaw’s ACR3 is a four port rack that facilitates fast, automatic probe exchange without the need for probe re-qualification.  In addition, the ACR3 provides covered storage and protection for up to eight probes and extension bars (two four port systems can be linked to provide an eight port system). </p>
+<p>Mounted within the CMM’s working envelope, the ACR3 is combined with the modular rack system (MRS) to form an automatic change rack for probes and extension bars that incorporate the Renishaw autojoint. </p>
+<p>The autojoint (as shown in figure 2) is a highly repeatable kinematic joint, one half of which is attached to the probe head, the other half to a probe, extension bar or adapter. </p>
+<p><strong><mark>&gt; picture [298 x 270] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+Head or<br>extension bar<br>Clamping mechanism<br>Kinematic location<br>Locking / unlocking<br>screw<br>Electrical contacts<br>PAA1 adaptor<br><strong>----- End of picture text -----</strong><br></p>
+<p><strong>Figure 2 - Autojoint</strong> </p>
+<p><strong>20</strong> System description </p>
+<p>Locking and unlocking of the autojoint is achieved either manually, using an autojoint key, or automatically, using the autochange rack system. In all cases, the repeatability of the autojoint eliminates the need for probe requalification after each probe exchange. </p>
+<p>Fast probe exchange cycles are achieved by the probe head docking the original probe and selecting a new one. The autochange system consists of a four port autochange rack (ACR3) and the modular rack system (MRS) as shown in figure 3 below. </p>
+<p><strong><mark>&gt; picture [322 x 218] intentionally omitted &lt;</mark></strong></p>
+<p><strong>Figure 3 - MRS and ACR3</strong> </p>
+<p>System description </p>
+<p><strong>21</strong> </p>
+<h2 id="22-acr3-autochange-rack"><strong>2.2 ACR3 autochange rack</strong></h2>
+<p>The ACR3 (see figure 4) is a four port mechanical design that traverses the MRS rail.  Driven by the motion of the CMM, it locks and unlocks the autojoint between the probe and the probe head. </p>
+<h2 id="figure-4-acr3"><strong>Figure 4 - ACR3</strong></h2>
+<p>Each rack port (figure 5) is of modular design to permit easy replacement should wear occur during the operational life of the ACR3. </p>
+<p>Each rack comes with a setting gauge (figure 6) that is designed to assist in the datuming of the ACR3. </p>
+<p><strong>Figure 5 - Rack port</strong> </p>
+<p><strong>Figure 6 - Setting gauge</strong> </p>
+<p><strong>22</strong> System description </p>
+<h2 id="23-modular-rack-stand-mrs"><strong>2.3 Modular rack stand (MRS)</strong></h2>
+<p>The MRS is the common mounting platform for the ACR3, SCP600 (stylus change port for SP600) and FCR25 (flexible change rack for SP25M). It is available in a number of different overall lengths and heights. For a detailed explanation of this system, please refer to the MRS installation and user’s guide (part no. H-1000-5088). </p>
+<h2 id="24-compatible-renishaw-products"><strong>2.4 Compatible Renishaw products</strong></h2>
+<p>Renishaw have a number of probe heads and probes that have either the male or female part of the autojoint fitted to them. Listed below is a brief description of each. For additional information, please refer to the relevant product documentation. </p>
+<h2 id="241-heads"><strong>2.4.1 Heads</strong></h2>
+<p><strong>PH10M</strong> – A motorised indexing probe head with 720 repeatable positions suitable for all two wire and multiwired probes. </p>
+<p><strong>PH10MQ</strong> – This is an in-quill mounted version of the PH10M head. </p>
+<p><strong>PH6M</strong> – A fixed autojointed probe head suitable for all two wire and multiwired probes. </p>
+<h2 id="242-probes"><strong>2.4.2 Probes</strong></h2>
+<p><strong>SP25</strong> – High accuracy scanning probe enabling the user to scan for form measurement and reverse engineering, rapid TTP for geometric measurements is also possible. </p>
+<p><strong>SP600M</strong> – Analogue contact scanning probe which is ideal for profile scanning and it features 300 mm stylus capability. Permits the CMM to gather large amounts of data very rapidly. </p>
+<p><strong>TP7M</strong> – High accuracy strain gauge based touch-trigger probe. </p>
+<p><strong>TP6A</strong> – This is a probe suited to general purpose probing applications offering longer and heavier styli carrying capability. </p>
+<p><strong>OTP6M</strong> – An optical trigger probe that uses a visible laser spot to provide a non-contact inspection solution for CMMs. </p>
+<p>System description </p>
+<p><strong>23</strong> </p>
+<p>Using the Renishaw range of probe adaptor bars (PAA), the complete range of Renishaw M8 probes can be used in conjunction with the autochange system; a brief description of some of these probes is given below: </p>
+<p><strong>TP20</strong> – A 13 mm diameter kinematic touch-trigger probe consisting of a two piece design that provides the facility to repeatedly change probe modules without the need for re-qualification. </p>
+<p><strong>TP200</strong> – A 13 mm diameter strain gauge based touch-trigger probe consisting of a two piece design that provides the facility to repeatedly change stylus modules without the need for re-qualification. </p>
+<p><strong>TP2</strong> - A 13 mm diameter kinematic touch-trigger probe with adjustable stylus force. </p>
+<p><strong>TP6</strong> – A 25 mm diameter kinematic touch-trigger probe of a robust design. </p>
+<p><strong>NOTE 1:</strong> ACR3 can only be used in the horizonal orientation. </p>
+<p><strong>NOTE 2:</strong> It is not possible to remove probes off the end of extension bars using ACR3. </p>
+<p>System description </p>
+<p><strong>24</strong> </p>
+<p>INTENTIONALLY, THIS PAGE HAS BEEN LEFT  BLANK </p>
+<p>Head alignment </p>
+<p><strong>25</strong> </p>
+<h2 id="3-head-alignment"><strong>3 Head alignment</strong></h2>
+<p>It is necessary for the probe head to be aligned with both the movements of the CMM and the ACR3. This is because the autojoint is a high force mechanical joint that could cause operational errors if used with an incorrectly aligned ACR3. </p>
+<p><strong>NOTE:</strong> The Renishaw PH10 motorised head system has been designed so that the roll and pitch of the autojoint is held within the tolerances required for the ACR3 system, when connected to a standard Renishaw shank. </p>
+<p>In the majority of installations only the yaw of the motorised head requires alignment. However, it is possible that the location of the probe head shank to the CMM quill, or the mounting face of the PH10MQ to the CMM quill, is not held to the required tolerances. In some cases, this could result in excessive ACR3 port wear or failure of the ACR3 to change probes. </p>
+<p>This problem can be rectified by using either the AM1 or AM2 adjustment module. </p>
+<p><strong>26</strong> Head alignment </p>
+<h2 id="31-alignment-of-the-probe-head-roll"><strong>3.1 Alignment of the probe head - roll</strong></h2>
+<p>The roll axis of the head is from the left-hand side to the right-hand side of the probe head. <strong>The maximum recommended alignment error is 0.2°.</strong> </p>
+<p>The recommended procedure for setting the roll of a motorised or indexing probe head is as follows (see figure 7): </p>
+<p><strong>NOTE:</strong> During this procedure the probe should not be qualified. </p>
+<ol>
+<li>
+<p>Index the probe head to an A axis position of 90° and a B axis position of -90°. </p>
+</li>
+<li>
+<p>Using the probe attached to the probe head, measure the qualification sphere on the CMM table (sphere 1).  Use the centre of this measured sphere as a datum. </p>
+</li>
+<li>
+<p>Index the probe head to an A axis position of 90° and a B axis position of 90°. </p>
+</li>
+<li>
+<p>Using the probe attached to the probe head, measure the qualification sphere on the CMM table (sphere 2). </p>
+</li>
+<li>
+<p>Calculate the roll angle for the probe head using the following formula: </p>
+</li>
+</ol>
+<p>Z asix pooitisn of sphere 2 = Rllo anelg arc TAN Y asix pooitisn of sphere 2 r(ecommended &lt;0.2)° { } </p>
+<ol>
+<li>If the roll angle exceeds 0.2° then adjustment is required, please refer to ‘Adjusting the AM1’ or ‘Adjusting the AM2’ as appropriate and repeat steps 1 to 5. </li>
+</ol>
+<p>Head alignment <strong>27</strong> </p>
+<p><strong><mark>&gt; picture [321 x 188] intentionally omitted &lt;</mark></strong></p>
+<p><strong>Figure 7 - Probe head in two positions measuring qualification sphere (roll angle)</strong> </p>
+<h2 id="32-alignment-of-probe-head-pitch"><strong>3.2 Alignment of probe head – pitch</strong></h2>
+<p>The pitch axis of the head is from the front of the probe head (where the LED is located) to the rear of the probe head. <strong>The maximum recommended alignment error is 0.2°.</strong> </p>
+<p>The recommended procedure for setting the pitch of a motorised or indexing probe head is as follows (see figure 8): </p>
+<p><strong>NOTE:</strong> During this procedure the probe should not be qualified. </p>
+<ol>
+<li>
+<p>Index the probe head to an A axis position of 90° and a B axis position of 0°. </p>
+</li>
+<li>
+<p>Using the probe attached to the probe head, measure the qualification sphere on the CMM table (sphere 1). Use the centre of this measured sphere as a datum. </p>
+</li>
+<li>
+<p>Index the probe head to an A axis position of 90° and a B axis position of 180°. </p>
+</li>
+</ol>
+<p><strong>28</strong> Head alignment </p>
+<ol>
+<li>
+<p>Using the probe attached to the probe head, measure the qualification sphere on the CMM table (sphere 2). </p>
+</li>
+<li>
+<p>Calculate the pitch angle for the probe head using the following formula: </p>
+</li>
+</ol>
+<p>Z asix pooitisn of sphere 2 = Pctih anelg arc TAN X asix pooitisn of sphere 2 r(ecommended &lt;0.2)° { } </p>
+<ol>
+<li>If the roll angle exceeds 0.2° then adjustment is required, please refer to ‘Adjusting the AM1’ or ‘Adjusting the AM2’ as appropriate and repeat steps 1 to 5. </li>
+</ol>
+<p><strong><mark>&gt; picture [163 x 210] intentionally omitted &lt;</mark></strong></p>
+<p><strong><mark>&gt; picture [101 x 117] intentionally omitted &lt;</mark></strong></p>
+<p><strong>Figure 8 - Probe head in two positions measuring qualification sphere (pitch angle)</strong> </p>
+<p><strong>29</strong> </p>
+<p>Head alignment </p>
+<h2 id="33-alignment-of-the-probe-head-yaw"><strong>3.3 Alignment of the probe head - yaw</strong></h2>
+<p>The yaw axis of the head is the rotational axis of the probe head with respect to the quill of the CMM. <strong>The maximum recommended alignment error is 0.2°.</strong> </p>
+<p>The recommended procedure for setting the yaw of a motorised or indexing head is as follows (see figure 9): </p>
+<p><strong>NOTE:</strong> During the procedure the probe should not be qualified. </p>
+<ol>
+<li>
+<p>Index the probe head to an A axis position of 0° and a B axis position required for an autojoint probe to enter the ACR3. </p>
+</li>
+<li>
+<p>Using the probe attached to the probe head, measure the qualification sphere on the CMM table (sphere 1).  Use the centre of the measured sphere as a datum. </p>
+</li>
+<li>
+<p>Index the probe head to an A axis position of 90°, maintaining the same B axis position as in step 1. </p>
+</li>
+<li>
+<p>Using the probe attached to the probe head, measure the qualification sphere on the CMM table (sphere 2). </p>
+</li>
+<li>
+<p>Calculate the yaw angle of the probe head using the following formula: </p>
+</li>
+</ol>
+<p>X asix pooitisn of sphere 2 = Yaw anelg arc TAN Y asix pooitisn of sphere 2 r(ecommended &lt;0.2)° { } </p>
+<ol>
+<li>If the yaw angle exceeds 0.2° then adjustment is required, please refer to ‘Adjusting the AM1’ or ‘Adjusting the AM2’ as appropriate and repeat steps 1 to 5. </li>
+</ol>
+<p>Head alignment </p>
+<p><strong>30</strong> </p>
+<p><strong><mark>&gt; picture [145 x 189] intentionally omitted &lt;</mark></strong></p>
+<p><strong>Figure 9 - Probe head in two positions measuring qualification sphere (yaw angle)</strong> </p>
+<p>Head alignment <strong>31</strong> </p>
+<h2 id="34-am1-adjustable-module"><strong>3.4 AM1 adjustable module</strong></h2>
+<p>The AM1 adjustment module (see figure 10) is designed to provide quick and accurate angular alignment of the PH6M and PH10M with the axes of the CMM and Renishaw ACR3. </p>
+<p>In addition, the quick release mechanism allows the probe heads to be removed for storage and replaced without further alignment. In-built overtravel protection minimises the risk of probe head damage. </p>
+<h2 id="341-adjusting-the-am1"><strong>3.4.1 Adjusting the AM1</strong></h2>
+<p>Listed below are instructions to adjust the AM1 to align the probe head to the CMM axes. The procedure should be carried out in the order specified: </p>
+<p><strong>1. Roll adjustment</strong> - rotate the roll adjusting capstans equally and in opposite directions (i.e. rotate one capstan clockwise and the other anti-clockwise) to adjust roll. </p>
+<p><strong>2. Pitch adjustment</strong> - rotate the pitch adjusting capstan to increase or decrease the pitch. </p>
+<p><strong>3. Yaw adjustment</strong> - </p>
+<ul>
+<li>
+<p>a. Release the lock screw. </p>
+</li>
+<li>
+<p>b. Rotate the yaw adjusting screws equally in opposite directions to provide the required yaw. </p>
+</li>
+<li>
+<p>c. Tighten the screws against each other without applying excessive torque. </p>
+</li>
+<li>
+<p>d. Tighten the lock screw. </p>
+</li>
+</ul>
+<p>Head alignment </p>
+<p><strong>32</strong> </p>
+<ol>
+<li>
+<p>Quick release of the AM1 from shank - </p>
+</li>
+<li>
+<p>a. Release the lock screw. </p>
+</li>
+<li>
+<p>b. Retract ONE yaw adjustment screw. </p>
+</li>
+</ol>
+<p><strong>NOTE:</strong> If repeatability of position is required on re-attachment, DO NOT alter the other screw. This repeatability of position is normally sufficient for alignment with the autochange rack, but probes must be re-qualified for measurement. </p>
+<ol>
+<li>
+<p>Re-attachment of AM1 to shank </p>
+</li>
+<li>
+<p>a. Locate the AM1 against the shank and rotate until engaged. </p>
+</li>
+<li>
+<p>b. Tighten the yaw adjustment screw. </p>
+</li>
+<li>
+<p>c. Tighten the locking screw. </p>
+</li>
+</ol>
+<p><strong><mark>&gt; picture [278 x 169] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+Pitch adjusting<br>capstan<br>Safety screw<br>Yaw adjusting Yaw adjusting<br>screw screw<br>Roll adjusting Roll adjusting<br>capstan Locking capstan<br>screw<br><strong>----- End of picture text -----</strong><br></p>
+<p><strong>Figure 10 - AM1 adjustment module</strong> </p>
+<p><strong>33</strong> </p>
+<p>Head alignment </p>
+<h2 id="35-am2-adjustment-module"><strong>3.5 AM2 adjustment module</strong></h2>
+<p>The AM2 adjustment module (see figure 11) is designed to provide quick and accurate angular alignment of the PH10MQ motorised probe head with the axes of the CMM and Renishaw ACR3. </p>
+<p>The AM2 consists of the adjuster plate, which is attached to the quill of the CMM, and a set of adjusters fitted to the flange of the head. </p>
+<p>The probe head is fixed to the adjuster plate by a pair of captive screws. </p>
+<p>The AM2 incorporates a quick release mechanism that allows the same probe head to be removed for storage and refitted without further alignment. </p>
+<p><strong>NOTE:</strong> If repeatability of position is required on re-attachment, only the securing screws should be released.  Do not alter the other screws.  This repeatability of position is normally sufficient for alignment with the autochange rack, but probes must be requalified for measurement. </p>
+<p><strong><mark>&gt; picture [312 x 172] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+80 mm square<br>70.5 mm square<br>[&gt;|<br>Yaw adjustment screw Roll adjustment screw<br>Securing screw <em>/©Teall Securing screw<br>a ©<br>AM2 to quill NwmS<br>mounting screws<br>Pitch adjustment screw<br></em><em>----- End of picture text -----</em>*<br></p>
+<p><strong>Figure 11 - AM2 adjustment module</strong> </p>
+<p><strong>34</strong> Head alignment </p>
+<h2 id="351-adjusting-the-am2"><strong>3.5.1 Adjusting the AM2</strong></h2>
+<p>A special tool is supplied, consisting of a concentric hexagon key and socket spanner. This should be located on the adjusters and locknuts recessed into the face of the head mounting flange. </p>
+<p><strong>NOTE:</strong> Springs are fitted under the adjuster locknuts to provide some preload during set up. </p>
+<p>The procedure to use this tool is: </p>
+<ol>
+<li>
+<p>Slacken the locknut slightly using the outer part of the tool. </p>
+</li>
+<li>
+<p>Set the adjuster using the inner part of the tool. </p>
+</li>
+<li>
+<p>While holding the adjuster stationary with the inner part of the tool, tighten the locknut using the outer part of the tool: </p>
+</li>
+</ol>
+<p><strong>Roll adjustment:</strong> Using the AM2 tool and the procedure given above, adjust the roll adjustment screw on the AM2 (as shown in figure 11). </p>
+<p><strong>Pitch adjustment:</strong> Using the AM2 tool and the procedure given above, adjust the pitch adjustment screw on the AM2 (as shown in figure11). </p>
+<p><strong>Yaw adjustment:</strong> Using the AM2 tool and the procedure given above, adjust the yaw adjustment screw on the AM2 (as shown in figure 11). </p>
+<ol>
+<li>Tighten the two securing screws (as shown in figure 11). </li>
+</ol>
+<p><strong>NOTE:</strong> Tightening the securing screws could cause the roll, pitch or yaw alignment to change. It is therefore recommended that the alignments are checked after this procedure. </p>
+<p>Fitting the ACR3 to the MRS rack </p>
+<p><strong>35</strong> </p>
+<h2 id="4-fitting-the-acr3-to-the-mrs-rack"><strong>4 Fitting the ACR3 to the MRS rack</strong></h2>
+<h2 id="41-fitting-a-four-port-acr3-system"><strong>4.1 Fitting a four port ACR3 system</strong></h2>
+<p>It is recommended that the ACR3 rack be attached to the MRS rack using the following procedure. During this procedure, it is assumed that the MRS rack has been installed as detailed in the MRS installation guide (H-1000-5088): </p>
+<p>A <strong>!</strong> </p>
+<p><strong>CAUTION:</strong> Moving parts, beware of pinch hazards.  The MRS must be securely bolted to the machine table. </p>
+<ol>
+<li>With the ARC3 in fully <strong>unlocked</strong> position; place bolt through the righthand countersunk clearance hole, into thread of the long 'T' nut and finger tighten. </li>
+</ol>
+<p><strong>NOTE:</strong> Ensure T-nuts are positioned as indicated in Figure 12. </p>
+<p><strong><mark>&gt; picture [274 x 206] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+UNLOCKED 'T' nuts<br>LOCKED<br>=e<br>Countersunk<br>positioning hole<br>&lt; a<br>Bolt<br><strong>----- End of picture text -----</strong><br></p>
+<p><strong>Figure 12 - ACR3 fully unlocked position</strong> </p>
+<p>Fitting the ACR3 to the MRS rack </p>
+<p><strong>36</strong> </p>
+<ol>
+<li>With the ACR3 in fully <strong>locked</strong> position: </li>
+</ol>
+<p><strong><mark>&gt; picture [277 x 181] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+UNLOCKED<br>'T' nuts<br>LOCKED<br>Countersunk<br>positioning hole<br>Bolt<br><strong>----- End of picture text -----</strong><br></p>
+<p><strong>Figure 13 - ARC3 fully locked position</strong> </p>
+<p>Place bolt through the left-hand countersunk clearance hole, into the thread of the short 'T' nut and finger tighten. </p>
+<ol>
+<li>
+<p>Position the ACR3 on the MRS rack such that the rack can move freely from its unlocked position to its locked position. </p>
+</li>
+<li>
+<p>Using the 5 mm hex key (supplied), tighten the two countersunk bolts. </p>
+</li>
+<li>
+<p>Check the alignment of the ACR3 with respect to the CMM axis. This is achieved by taking two points on the front of the ACR3 as shown in figure 14. The ‘run out’ of the ACR3, with respect to the CMM axis, should be less than 0.5 mm between these two points. </p>
+</li>
+<li>
+<p>Adjustment of the ACR3 (with respect to the machine axis) should be completed by releasing the appropriate countersunk bolt and manually re-positioning the ACR3 and then re-tightening the bolt. </p>
+</li>
+</ol>
+<p>Fitting the ACR3 to the MRS rack </p>
+<p><strong>37</strong> </p>
+<p><strong>Figure 14 - Alignment of the ACR3</strong> </p>
+<p><strong>CAUTION:</strong> Ensure rack does not overhang the MRS in either the A <strong>!</strong> locked or unlocked position. </p>
+<p><strong>NOTE:</strong> The springs supplied can be inserted into the short 'T' nut and used to maintain the position of the 'T' nut in the MRS rail.  See figure 15. </p>
+<p><strong>Figure 15 - Use of springs</strong> </p>
+<p>Fitting the ACR3 to the MRS rack </p>
+<p><strong>38</strong> </p>
+<h2 id="42-fitting-an-eight-port-acr3-system"><strong>4.2 Fitting an eight port ACR3 system</strong></h2>
+<p>The long 'T' nut is designed to allow two 4 port units to be linked, as shown by figure 16.  The distance required between the two racks is ‘set’ by the 'T' nut.  For attaching an 8 port system follow the instructions in section 4.1 to fit ACR3 ports 1 - 4. <strong>However, ensure the 'T' nuts are as indicated in figure 16.</strong> To fit ports 5 - 8 follow the instructions below: </p>
+<p><strong><mark>&gt; picture [24 x 22] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+A !<br><strong>----- End of picture text -----</strong><br></p>
+<p><strong>CAUTION:</strong> Moving parts, beware of pinch hazards.  The MRS must be securely bolted to the machine table. </p>
+<ol>
+<li>
+<p>Mount one ACR3 as detailed in 4.1 taking care to re-orientate the long 'T' nut. </p>
+</li>
+<li>
+<p>Slide ACR3 to the fully unlocked position (left-hand side of travel). Push ACR3 ports 5 - 8 into the fully locked position (right-hand side of travel).  Pass the bolt through the left hand countersunk clearance hole.  Finger tighten. </p>
+</li>
+</ol>
+<p><strong><mark>&gt; picture [35 x 21] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+Mounting<br>plate<br><strong>----- End of picture text -----</strong><br></p>
+<p><strong>Figure 16 - 'T' nuts for 8 port ACR3</strong> </p>
+<p><strong>CAUTION:</strong> Ensure rack does not overhang the MRS in either the locked or unlocked position. </p>
+<p>A <strong>!</strong> </p>
+<p>Fitting the ACR3 to the MRS rack </p>
+<p><strong>39</strong> </p>
+<ol>
+<li>Push the ACR3 ports 5 - 8 into the fully unlocked position to the left. Place bolt through the right-hand countersunk clearance hole into short 'T' nut and finger tighten, as in figure 17. </li>
+</ol>
+<p><strong>NOTE:</strong> The long 'T' nut <strong>must</strong> be used when linking two ACR3s. </p>
+<p><strong>Figure 17 - Attaching the 8 port ACR3</strong> </p>
+<ol>
+<li>
+<p>Position the ACR3 on the MRS so that the rack can move freely from its unlocked position to its locked position. </p>
+</li>
+<li>
+<p>Using the 5 mm hex key (supplied), tighten the four countersunk bolts. </p>
+</li>
+<li>
+<p>Using the connection bolt and O-ring supplied with the ACR3 kit, join the two ACR3 units as shown in figure 18. Use the O-ring supplied to separate the two racks. </p>
+</li>
+<li>
+<p>Check the alignment of each of the ACR3’s with respect to the CMM axis. This is achieved by taking two points on the front of each ACR3 unit as shown in figure 14. The ‘run out’ of each of the ACR3 units, with respect to the CMM axis, should be less than 0.5 mm, between the points on each rack. </p>
+</li>
+<li>
+<p>Adjustment of the ACR3’s (with respect to the machine axis) should be completed by releasing the necessary mounting bolt, manually repositioning the ACR3 and then re-tightening the bolt. </p>
+</li>
+</ol>
+<p><strong>40</strong> Fitting the ACR3 to the MRS rack </p>
+<p><strong><mark>&gt; picture [29 x 10] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+‘O’ ring<br><strong>----- End of picture text -----</strong><br></p>
+<p><strong>Figure 18 - ACR3 showing mounting nuts (MRS rail removed for clarity)</strong> </p>
+<p>Datuming the ACR3 </p>
+<p><strong>41</strong> </p>
+<h2 id="5-datuming-the-acr3"><strong>5 Datuming the ACR3</strong></h2>
+<p>The following section describes the recommended procedure for datuming the ACR3 once it is fitted to the MRS rack and the MRS is fitted to the CMM table (please refer to ‘Fitting the ACR3 to the MRS rack’, earlier in this document). </p>
+<h2 id="51-locating-the-z-position-of-the-acr3"><strong>5.1 Locating the z position of the ACR3</strong></h2>
+<ol>
+<li>
+<p>Position the ACR3 so that it is in the unlocked position (positioned to the left-hand side of the travel). </p>
+</li>
+<li>
+<p>Insert the lid clips as shown in figure 19. </p>
+</li>
+</ol>
+<p><strong>Figure 19 - Inserting the lid clips on the ACR3</strong> </p>
+<p><strong>NOTE:</strong> This procedure assumes the rack is aligned with the Y axis.  If the rack is aligned with the X axis, transpose X and Y. </p>
+<p>Datuming the ACR3 </p>
+<p><strong>42</strong> </p>
+<ol>
+<li>
+<p>Position the ACR3 setting gauge into port 1 as shown in figure 20. </p>
+</li>
+<li>
+<p>Inhibit the probe signal.  It is recommended that this is done from within the CMM software. </p>
+</li>
+</ol>
+<p>A <strong>! Use extreme caution:</strong> The machine could be crashed. </p>
+<ol>
+<li>Remove the probe from the probe head (at the autojoint). a San a Setting <del>a</del> gauge </li>
+</ol>
+<p><strong><mark>&gt; picture [202 x 10] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+Figure 20 - Positioning the ACR3 setting gauge<br><strong>----- End of picture text -----</strong><br></p>
+<p><strong>Figure 21 - Locating the z  position of the ACR3</strong> </p>
+<p>Datuming the ACR3 </p>
+<p><strong>43</strong> </p>
+<ol>
+<li>
+<p>Position the autojoint puller into the central slot of the ACR3 setting piece. Take care not to move the position of the ACR3 (see figure 21). </p>
+</li>
+<li>
+<p>Using ~50 µm DCC incremental moves, slowly lower the autojoint face so that it just touches (machine Z axis) onto the top face of the setting gauge.  Use it as a feeler gauge to identify the correct Z axis position for the probe head with respect to the ACR3. Record a point at this position (point A). </p>
+</li>
+</ol>
+<p><strong>NOTE:</strong> More than one attempt may be required to get a ‘feel’ for this operation. </p>
+<p><strong><mark>&gt; picture [24 x 22] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+!<br><strong>----- End of picture text -----</strong><br></p>
+<p><strong>LIVE CMM AXES:</strong> REMAIN OUTSIDE WORKING ZONE BETWEEN Z POSITION CHECKS.  DO NOT ALLOW OTHERS TO OPERATE THE CMM DURING THIS PROCESS. </p>
+<ol>
+<li>Remove the probe head from the ACR3 setting piece. </li>
+</ol>
+<p><strong><mark>&gt; picture [24 x 22] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+!<br><strong>----- End of picture text -----</strong><br></p>
+<p>It is not possible to use the probe to find the ‘Z’ position because of tolerance stackups within the probe and stylus combination. </p>
+<p><strong>44</strong> Datuming the ACR3 </p>
+<h2 id="52-locating-the-x-position-of-the-acr3"><strong>5.2 Locating the x position of the ACR3</strong></h2>
+<ol>
+<li>
+<p>Move the probe head so that the external surface of the autojoint is just touching the front of the ACR3 setting piece (see figure 22). Use ~50 µm DCC incremental moves, to identify the correct Y axis position. </p>
+</li>
+<li>
+<p>Record a point at this position (point B). </p>
+</li>
+<li>
+<p>Move the probe head clear of the ACR3 and connect the probe assembly. </p>
+</li>
+</ol>
+<p><strong>NOTE:</strong> Ensure that the autojoint locking cam is positioned approximately 5° backed off from the fully locked position and enable the probe signal. </p>
+<ol>
+<li>Remove the ACR3 setting piece from port 1. </li>
+</ol>
+<p><strong><mark>&gt; picture [276 x 159] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+ACR3 port<br>Probe  head<br>autojoint<br>ACR3 setting gauge<br><strong>----- End of picture text -----</strong><br></p>
+<p><strong>Figure 22 - Locating the x position of the ACR3</strong> </p>
+<p>Datuming the ACR3 </p>
+<p><strong>45</strong> </p>
+<h2 id="53-locating-the-y-position-of-the-acr3"><strong>5.3 Locating the y position of the ACR3</strong></h2>
+<ol>
+<li>Manually take 4 points on the top of port 1 (port[1] unlocked, points 1 to 4) as shown in figure 23, to create a plane. </li>
+</ol>
+<p><strong><mark>&gt; picture [101 x 52] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+2<br>3<br>1<br>—— 4<br><strong>----- End of picture text -----</strong><br></p>
+<p><strong>Figure 23 - Taking points on port top</strong> </p>
+<p><strong>NOTE:</strong> Take care not to take a point to close to the lid clip as this may cause a problem later on in the datuming procedure. </p>
+<ol>
+<li>Manually take 4 points round the curved part at the rear of port 1 (port[1] unlocked, circle centre) as shown in figure 24.  Take care to avoid the driver blade and the mounting screw holes. </li>
+</ol>
+<p><strong><mark>&gt; picture [103 x 69] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+1 2<br>3<br>Vie 4<br><strong>----- End of picture text -----</strong><br></p>
+<p><strong>Figure 24 - Taking points inside port</strong> </p>
+<p>Datuming the ACR3 </p>
+<p><strong>46</strong> </p>
+<ol>
+<li>
+<p>Construct an axis system using: </p>
+</li>
+<li>
+<p>“Port1 unlocked, points 1 to 4” as the primary plane (refer to step 1). </p>
+</li>
+<li>
+<p>“Port1 unlocked, circle centre” as the secondary axis and tertiary axis origin (refer to step 2). </p>
+</li>
+<li>
+<p>Store this axis system as (axis 1). </p>
+</li>
+<li>
+<p>The CMM can now locate ports 2 to 4 in the unlocked position under CNC control. The table below shows the nominal location of the centre of these ports, assuming that the rack is running along the CMM’s Y axis. </p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>tr<br>o<br>P</th>
+<th>n<br>oitis<br>o<br>p<br>X</th>
+<th>n<br>oitis<br>o<br>p<br>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>5<br>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>0<br>7</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0</td>
+<td>5<br>0<br>1</td>
+</tr>
+</tbody>
+</table>
+<p>Dimenoisns ni mm </p>
+<p>The recommended procedure for locating the ports is as follows (see figures 21 and 22 for reference): </p>
+<ul>
+<li>
+<p>a. Move stylus to nominal XY centre of port. </p>
+</li>
+<li>
+<p>b. Move stylus to 2 mm below the top surface of the port, in the current axis (axis 1) system. </p>
+</li>
+<li>
+<p>c. Take 4 points round the curved part at the rear of the port. </p>
+</li>
+<li>
+<p>d. Use the 4 points to create a circle, use this as a sub-datum in the XY axis. </p>
+</li>
+</ul>
+<p>Datuming the ACR3 </p>
+<p><strong>47</strong> </p>
+<p>e. Take 4 points on the top surface of the port. </p>
+<table>
+<thead>
+<tr>
+<th>t<br>nio<br>P</th>
+<th>n<br>oitis<br>o<br>p<br>X</th>
+<th>n<br>oitis<br>o<br>p<br>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>8</td>
+<td>5<br>.<br>3<br>1<br>-</td>
+</tr>
+<tr>
+<td>2</td>
+<td>8<br>-</td>
+<td>5<br>.<br>3<br>1<br>-</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8<br>-</td>
+<td>5<br>.<br>3<br>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>8</td>
+<td>5<br>.<br>3<br>1</td>
+</tr>
+</tbody>
+</table>
+<div class="language-text highlight"><pre><span></span><code>  - Dimenoisns ni mm
+</code></pre></div>
+<ul>
+<li>
+<p>f. Store the points as port[x] unlocked points 1 to 4. </p>
+</li>
+<li>
+<p>g. Store the circle as port[x] unlocked circle 1. </p>
+</li>
+<li>
+<p>h. Recall axis 1 (see step 3). </p>
+</li>
+<li>
+<p>i. Locate the next port. </p>
+</li>
+<li>
+<p>If an eight port ACR3 is to be fitted to the CMM then step 7 should be completed, otherwise please go to step 8. </p>
+</li>
+<li>
+<p>The CMM can now locate ports 5 to 8 in the unlocked position under CNC control.  The table below shows the nominal location of the centre of these ports, with respect to the axis 1, assuming that the rack is running along the CMM’s Y axis. </p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>tr<br>o<br>P</th>
+<th>n<br>oitis<br>o<br>p<br>X</th>
+<th>n<br>oitis<br>o<br>p<br>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>0</td>
+<td>7<br>8<br>1</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0</td>
+<td>2<br>2<br>2</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0</td>
+<td>7<br>5<br>2</td>
+</tr>
+<tr>
+<td>8</td>
+<td>0</td>
+<td>2<br>9<br>2</td>
+</tr>
+<tr>
+<td>m<br>m<br>ni<br>s<br>n<br>ois<br>n<br>e<br>m<br>i<br>D</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>x  Port number (e.g. 1, 2, 3 etc.). </p>
+<p><strong>48</strong> Datuming the ACR3 </p>
+<p>The recommended procedure for locating 5 to 8 ports is as follows (see figures 23 and 24 for reference): </p>
+<ul>
+<li>
+<p>a. Take a Z axis reference point (x = 6.5 mm, y = 173.8 mm) for ACR3 in the unlocked position. Use this point as a Z axis sub datum for locating ports 5 through 8 in the unlocked position. </p>
+</li>
+<li>
+<p>b. Move stylus to nominal XY centre of port. </p>
+</li>
+<li>
+<p>c. Move stylus to 2 mm below the top surface of the port, in the current axis (axis 1) system. </p>
+</li>
+<li>
+<p>d. Take 4 points round the curved part at the rear of the port. </p>
+</li>
+<li>
+<p>e. Use the 4 points to create a circle, use this as a sub-datum in the XY axis. </p>
+</li>
+<li>
+<p>f. Take 4 points on the top surface of the port. </p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>t<br>nio<br>P</th>
+<th>n<br>oitis<br>o<br>p<br>X</th>
+<th>n<br>oitis<br>o<br>p<br>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>8</td>
+<td>5<br>.<br>3<br>1<br>-</td>
+</tr>
+<tr>
+<td>2</td>
+<td>8<br>-</td>
+<td>5<br>.<br>3<br>1<br>-</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8<br>-</td>
+<td>5<br>.<br>3<br>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>8</td>
+<td>5<br>.<br>3<br>1</td>
+</tr>
+</tbody>
+</table>
+<div class="language-text highlight"><pre><span></span><code>  - Dimenoisns ni mm
+</code></pre></div>
+<ul>
+<li>
+<p>g. Store the points as port[x] unlocked points 1 to 4. </p>
+</li>
+<li>
+<p>h. Store the circle as port[x] unlocked circle 1. </p>
+</li>
+<li>
+<p>i. Recall axis 1. (see step 3). </p>
+</li>
+<li>
+<p>j. Locate the next port. </p>
+</li>
+<li>
+<p>Move the probe head clear of the ACR3. </p>
+</li>
+<li>
+<p>Move the ACR3 to the locked position (positioned to the right-hand side of the travel). </p>
+</li>
+</ul>
+<p>x  Port number (e.g. 5, 6, 7 etc.). </p>
+<p>Datuming the ACR3 </p>
+<p><strong>49</strong> </p>
+<ol>
+<li>
+<p>Take a Z axis reference point (x = 6.5 mm, y = 75.5 mm) for ACR3 position in the locked position. Use this point as a Z axis sub datum for locating ports 1 through 4 in the locked position. </p>
+</li>
+<li>
+<p>The CMM can now locate ports 1 to 4 in the locked position under CNC control. The table below shows the nominal location of the centre of these ports. </p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>t<br>nio<br>P</th>
+<th>n<br>oitis<br>o<br>p<br>X</th>
+<th>n<br>oitis<br>o<br>p<br>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>6<br>9<br>.<br>8<br>8</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>6<br>9<br>.<br>3<br>2<br>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>6<br>9<br>.<br>8<br>5<br>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0</td>
+<td>6<br>9<br>.<br>3<br>9<br>1</td>
+</tr>
+</tbody>
+</table>
+<p>Dimenoisns ni mm </p>
+<p>Recommended procedure for locating port: </p>
+<ul>
+<li>
+<p>a. Move stylus to nominal XY centre of port. </p>
+</li>
+<li>
+<p>b. Move stylus to 2 mm below the top surface of the port, in the current axis. </p>
+</li>
+<li>
+<p>c. Take 4 points round the curved part at the rear of the port. </p>
+</li>
+<li>
+<p>d. Use the 4 points to create a circle, use this as a sub-datum in the XY axis. </p>
+</li>
+</ul>
+<p>Take 4 points on the top surface of the port </p>
+<table>
+<thead>
+<tr>
+<th>t<br>nio<br>P</th>
+<th>n<br>oitis<br>o<br>p<br>X</th>
+<th>n<br>oitis<br>o<br>p<br>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>8</td>
+<td>5<br>.<br>3<br>1<br>-</td>
+</tr>
+<tr>
+<td>2</td>
+<td>8<br>-</td>
+<td>5<br>.<br>3<br>1<br>-</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8<br>-</td>
+<td>5<br>.<br>3<br>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>8</td>
+<td>5<br>.<br>3<br>1</td>
+</tr>
+<tr>
+<td>m<br>m<br>ni<br>s<br>n<br>ois<br>n<br>e<br>m<br>i<br>D</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>50</strong> Datuming the ACR3 </p>
+<ul>
+<li>
+<p>a. Store the points as port[x] locked points 1 to 4. </p>
+</li>
+<li>
+<p>b. Store the circle as port[x ] locked circle 1. </p>
+</li>
+<li>
+<p>c. Recall axis 1 (see step 3). </p>
+</li>
+<li>
+<p>d. Apply Z axis reference point as a Z axis sub-datum (see step 10). </p>
+</li>
+<li>
+<p>e. Locate the next port. </p>
+</li>
+<li>
+<p>If an eight port ACR3 is to be fitted to the CMM then this step should be completed, otherwise please go to step 14. </p>
+</li>
+<li>
+<p>The CMM can now locate ports 5 to 8 in the locked position under CNC control. The table below shows the nominal location of the centre of these ports, with respect to axis 1, assuming that the rack is running along the CMM’s Y axis. </p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>t<br>nio<br>P</th>
+<th>n<br>oitis<br>o<br>p<br>X</th>
+<th>n<br>oitis<br>o<br>p<br>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>0</td>
+<td>6<br>9<br>.<br>5<br>7<br>2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0</td>
+<td>6<br>9<br>.<br>0<br>1<br>3</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0</td>
+<td>6<br>9<br>.<br>5<br>4<br>3</td>
+</tr>
+<tr>
+<td>8</td>
+<td>0</td>
+<td>6<br>9<br>.<br>0<br>8<br>3</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Dimenoisns ni mm </li>
+</ul>
+<p>Recommended procedure for locating port (see figure 22 and 23 for reference): </p>
+<ul>
+<li>
+<p>a. Take a Z axis reference point (x = 6.5 mm, y = 262.3 mm) for ACR3 in the unlocked position. Use this point as a Z axis sub datum for locating ports 5 to 8 in the unlocked position. </p>
+</li>
+<li>
+<p>b. Move stylus to nominal XY centre of port. </p>
+</li>
+<li>
+<p>c. Move stylus to 2 mm below the top surface of the port, in the current axis (axis 1) system. </p>
+</li>
+</ul>
+<p>Datuming the ACR3 <strong>51</strong> </p>
+<ul>
+<li>
+<p>a. Take 4 points round the curved part at the rear of the port. </p>
+</li>
+<li>
+<p>b. Use the 4 points to create a circle, use this as a sub-datum in the XY axis. </p>
+</li>
+<li>
+<p>c. Take 4 points on the top surface of the port. </p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>t<br>nio<br>P</th>
+<th>n<br>oitis<br>o<br>p<br>X</th>
+<th>n<br>oitis<br>o<br>p<br>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>8</td>
+<td>5<br>.<br>3<br>1<br>-</td>
+</tr>
+<tr>
+<td>2</td>
+<td>8<br>-</td>
+<td>5<br>.<br>3<br>1<br>-</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8<br>-</td>
+<td>5<br>.<br>3<br>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>8</td>
+<td>5<br>.<br>3<br>1</td>
+</tr>
+</tbody>
+</table>
+<p>Dimenoisns ni mm </p>
+<ul>
+<li>
+<p>a. Store the points as port[x] locked points 1 to 4. </p>
+</li>
+<li>
+<p>b. Store the circle as port[x ] locked circle 1. </p>
+</li>
+<li>
+<p>c. Recall axis 1. (see step 3). </p>
+</li>
+<li>
+<p>d. Locate the next port. </p>
+</li>
+</ul>
+<p><strong>NOTE:</strong> As the movement of the ACR3 may not be a single axis move, the following procedure utilises dedicated axis systems for each port. </p>
+<p>Datuming the ACR3 </p>
+<p><strong>52</strong> </p>
+<ol>
+<li>
+<p>An axis system is now constructed for each of the ports. This step shows the construction steps for port 1 and should be repeated for each port: </p>
+</li>
+<li>
+<p>a. Construct a plane from port[1] unlocked points 1 to 4 and port[1] locked points 1 to 4 (port plane). </p>
+</li>
+<li>
+<p>b. Construct a line from port[1] unlocked circle 1 and port[1] locked circle 1 (port line). </p>
+</li>
+<li>
+<p>c. Construct an axis system (port[1] axis) using: </p>
+<ul>
+<li>
+<p>Port plane as the primary axis </p>
+</li>
+<li>
+<p>Port line as the secondary axis </p>
+</li>
+<li>
+<p>Port[1 ] unlocked circle 1 as the tertiary axis and origin of the axis system. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>d. Save axis system as port[1] axis. </p>
+</li>
+<li>
+<p>e. Repeat this for the remaining ports. </p>
+</li>
+<li>
+<p>The Z axis offset now has to be calculated as follows: </p>
+</li>
+<li>
+<p>a. Recall port[1] axis. </p>
+</li>
+<li>
+<p>b. Recall Point A (see section 5.1, step 7) in this axis system. </p>
+</li>
+<li>
+<p>c. Use the following formula: </p>
+</li>
+</ol>
+<h2 id="probe-z-offset-z-axis-of-point-a-1"><strong>probe Z offset = Z axis of Point A * – 1</strong></h2>
+<p>Datuming the ACR3 </p>
+<p><strong>53</strong> </p>
+<ol>
+<li>
+<p>The probe X axis offset now has to be calculated as follows: </p>
+</li>
+<li>
+<p>a. Recall port[1] axis. </p>
+</li>
+<li>
+<p>b. Recall Point B (see section 5.2, step 1) in this axis system. </p>
+</li>
+<li>
+<p>c. Use the following formula: </p>
+</li>
+</ol>
+<h2 id="probe-x-offset-x-axis-of-point-b-42-mm"><strong>probe X offset = X axis of Point B – 42 mm</strong></h2>
+<ol>
+<li>
+<p>Apply the Z and X probe offsets to all the ACR3 axis systems as follows, as constructed in step 14: </p>
+</li>
+<li>
+<p>a. Recall port[x] axis. </p>
+</li>
+<li>
+<p>b. Translate the Z axis datum position by probe Z offset. </p>
+</li>
+<li>
+<p>c. Translate the X axis datum position by probe X offset. </p>
+</li>
+<li>
+<p>d. Store as port[x] axis. </p>
+</li>
+<li>
+<p>Move the probe clear of the ACR3. </p>
+</li>
+<li>
+<p>Recall ACR3 axis[4] , move the probe head to a position of X 40 mm,Y 62.6 mm, Z 0 mm </p>
+</li>
+<li>
+<p>Move the ACR3 so that port 4 is located behind the position of the probe head. </p>
+</li>
+<li>
+<p>Slowly move the probe head in the X axis to a position of X = 0 mm (probe docked into the ACR3). </p>
+</li>
+</ol>
+<p>Datuming the ACR3 </p>
+<p><strong>54</strong> </p>
+<ol>
+<li>With the head located in port 4 move along the ACR3 Y axis using 50 to 100 µm DCC moves until the alignment circle is positioned in the centre of the alignment window.  Record a point (point C) in this position (see figure 25, below, for reference). </li>
+</ol>
+<h2 id="figure-25-locating-the-y-position-of-acr3"><strong>Figure 25 - Locating the y position of ACR3</strong></h2>
+<ol>
+<li>The probe Y axis offset now has to be calculated&gt; </li>
+</ol>
+<h2 id="probe-y-offset-y-axis-position-of-point-c-626-mm"><strong>probe Y offset = Y axis position of point C – 62.6 mm</strong></h2>
+<ol>
+<li>
+<p>Apply the Y probe offset to all the ACR3 axis systems: </p>
+</li>
+<li>
+<p>a. Recall port[x] axis as constructed in step 17. </p>
+</li>
+<li>
+<p>b. Translate the Y axis datum position by probe Y offset. </p>
+</li>
+<li>
+<p>c. Store as port[x] axis. </p>
+</li>
+</ol>
+<p>Datuming the ACR3 </p>
+<p><strong>55</strong> </p>
+<ol>
+<li>
+<p>Calculate the ACR3 traverse distance (distance): </p>
+</li>
+<li>
+<p>a. Recall port[1] axis. </p>
+</li>
+<li>
+<p>b. Recall port[1] locked circle (refer to step 11) the Y axis position of this feature is the traverse distance for the ACR3 (distance). </p>
+</li>
+<li>
+<p>This traverse distance is then used in the load/unload routines as shown in section 6. </p>
+</li>
+</ol>
+<p>Datuming the ACR3 </p>
+<p><strong>56</strong> </p>
+<p>INTENTIONALLY, THIS PAGE HAS BEEN LEFT  BLANK </p>
+<p>ACR3 change routine </p>
+<p><strong>57</strong> </p>
+<h2 id="6-acr3-change-routine"><strong>6 ACR3 change routine</strong></h2>
+<h2 id="_1"><strong>!</strong></h2>
+<p><strong>CAUTION:</strong> During various stages of this recommended change routine the probe signal is inhibited. The trigger line cannot therefore be used to reliably indicate the probe system status. </p>
+<h2 id="61-load-routine"><strong>6.1 Load routine</strong></h2>
+<p>All movements are absolute moves in mm and in respective port[x] axis system. </p>
+<table>
+<thead>
+<tr>
+<th>system.</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>n</strong><br><strong>o</strong><br><strong>iti</strong><br><strong>s</strong><br><strong>o</strong><br><strong>p</strong><br><strong>X</strong></td>
+<td><strong>n</strong><br><strong>o</strong><br><strong>iti</strong><br><strong>s</strong><br><strong>o</strong><br><strong>p</strong><br><strong>Y</strong></td>
+<td><strong>n</strong><br><strong>o</strong><br><strong>iti</strong><br><strong>s</strong><br><strong>o</strong><br><strong>p</strong><br><strong>Z</strong></td>
+</tr>
+<tr>
+<td>tr<br>o<br>p<br>lla<br>c<br>e<br>R<br>x<br>six<br>a</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>n<br>oitis<br>o<br>p<br>ff<br>o<br>-<br>d<br>n<br>a<br>t<br>S</td>
+<td>0<br>4</td>
+<td>0</td>
+<td>7</td>
+</tr>
+<tr>
+<td>tr<br>o<br>p<br>o<br>t<br>ni<br>y<br>rt<br>n<br>E</td>
+<td>0</td>
+<td>0</td>
+<td>7</td>
+</tr>
+<tr>
+<td>t<br>niojo<br>t<br>u<br>a<br>ela<br>m<br>e<br>f<br>tc<br>e<br>n<br>n<br>o<br>C</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>t<br>niojo<br>t<br>u<br>a<br>k<br>c<br>ol<br>o<br>t<br>e<br>v<br>o<br>M</td>
+<td>0</td>
+<td>e<br>c<br>n<br>a<br>tsi<br>D<br>n<br>oitc<br>e<br>s<br>o<br>t<br>r<br>e<br>f<br>e<br>r(<br>)<br>5<br>2<br>p<br>e<br>ts<br>3<br>.<br>5</td>
+<td>0</td>
+</tr>
+<tr>
+<td>n<br>oitis<br>o<br>p<br>ff<br>o<br>tfil<br>o<br>t<br>e<br>v<br>o<br>M</td>
+<td>0</td>
+<td>e<br>c<br>n<br>a<br>tsi<br>D<br>n<br>oitc<br>e<br>s<br>o<br>t<br>r<br>e<br>f<br>e<br>r(<br>)<br>5<br>2<br>p<br>e<br>ts<br>3<br>.<br>5</td>
+<td>1<br>.<br>0</td>
+</tr>
+<tr>
+<td>tr<br>o<br>p<br>tix<br>E</td>
+<td>0<br>4</td>
+<td>e<br>c<br>n<br>a<br>tsi<br>D<br>n<br>oitc<br>e<br>s<br>o<br>t<br>r<br>e<br>f<br>e<br>r(<br>)<br>5<br>2<br>p<br>e<br>ts<br>3<br>.<br>5</td>
+<td>1<br>.<br>0</td>
+</tr>
+<tr>
+<td>la<br>n<br>gis<br>e<br>b<br>o<br>r<br>p<br>elb<br>a<br>n<br>E</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTE:</strong> Due to forces exerted by the autochange operation on the head, it is strongly recommended that the head is unlocked and re-locked immediately after picking up a probe, in order to maintain repeatability. </p>
+<p><strong>58</strong> ACR3 change routine </p>
+<h2 id="62-unload-routine"><strong>6.2 Unload routine</strong></h2>
+<p>All movements are absolute moves in mm and in respective port[x] axis system. </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>n</strong><br><strong>o</strong><br><strong>iti</strong><br><strong>s</strong><br><strong>o</strong><br><strong>p</strong><br><strong>X</strong></th>
+<th><strong>n</strong><br><strong>o</strong><br><strong>iti</strong><br><strong>s</strong><br><strong>o</strong><br><strong>p</strong><br><strong>Y</strong></th>
+<th><strong>n</strong><br><strong>o</strong><br><strong>iti</strong><br><strong>s</strong><br><strong>o</strong><br><strong>p</strong><br><strong>Z</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tr<br>o<br>p<br>lla<br>c<br>e<br>R<br>x<br>six<br>a</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>n<br>oitis<br>o<br>p<br>ff<br>o<br>-<br>d<br>n<br>a<br>t<br>S</td>
+<td>0<br>4</td>
+<td>e<br>c<br>n<br>a<br>tsi<br>D<br>n<br>oitc<br>e<br>s<br>o<br>t<br>r<br>e<br>f<br>e<br>r(<br>)<br>5<br>2<br>p<br>e<br>ts<br>3<br>.<br>5</td>
+<td>1<br>.<br>0</td>
+</tr>
+<tr>
+<td>la<br>n<br>gis<br>e<br>b<br>o<br>r<br>p<br>tibih<br>n<br>I</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>tr<br>o<br>p<br>o<br>t<br>ni<br>y<br>rt<br>n<br>E</td>
+<td>0</td>
+<td>e<br>c<br>n<br>a<br>tsi<br>D<br>n<br>oitc<br>e<br>s<br>o<br>t<br>r<br>e<br>f<br>e<br>r(<br>)<br>5<br>2<br>p<br>e<br>ts<br>3<br>.<br>5</td>
+<td>1<br>.<br>0</td>
+</tr>
+<tr>
+<td>t<br>niojo<br>t<br>u<br>a<br>k<br>c<br>oln<br>u<br>o<br>t<br>e<br>v<br>o<br>M</td>
+<td>0</td>
+<td>0</td>
+<td>1<br>.<br>0</td>
+</tr>
+<tr>
+<td>lia<br>m<br>e<br>f<br>e<br>h<br>t<br>m<br>o<br>rf<br>e<br>s<br>a<br>ele<br>R<br>t<br>niojo<br>t<br>u<br>a</td>
+<td>0</td>
+<td>0</td>
+<td>7</td>
+</tr>
+<tr>
+<td>tr<br>o<br>p<br>tix<br>E</td>
+<td>0<br>4</td>
+<td>0</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>Troubleshooting </p>
+<p><strong>59</strong> </p>
+<h2 id="7-troubleshooting"><strong>7 Troubleshooting</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>tl</strong><br><strong>u</strong><br><strong>a</strong><br><strong>F</strong></th>
+<th><strong>e</strong><br><strong>s</strong><br><strong>u</strong><br><strong>a</strong><br><strong>c</strong><br><strong>e</strong><br><strong>l</strong><br><strong>b</strong><br><strong>i</strong><br><strong>s</strong><br><strong>s</strong><br><strong>o</strong><br><strong>P</strong></th>
+<th><strong>n</strong><br><strong>o</strong><br><strong>it</strong><br><strong>u</strong><br><strong>l</strong><br><strong>o</strong><br><strong>S</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n<br>o<br>tis<br>o<br>p<br>e<br>d<br>k<br>c<br>al<br>B<br>.t<br>niojo<br>t<br>u<br>a<br>e<br>b<br>o<br>r<br>p</td>
+<td>e<br>b<br>o<br>r<br>p<br>d<br>e<br>n<br>gila<br>yld<br>a<br>B<br>.<br>d<br>a<br>e<br>h<br>.<br>3<br>R<br>C<br>A<br>d<br>e<br>n<br>gila<br>yld<br>a<br>B</td>
+<td>-<br>3<br>n<br>oitc<br>e<br>S<br>'<br>o<br>t<br>r<br>e<br>f<br>e<br>r<br>-<br>d<br>a<br>e<br>h<br>e<br>b<br>o<br>r<br>p<br>n<br>gila<br>-<br>e<br>R<br>.'t<br>n<br>e<br>m<br>n<br>gila<br>d<br>a<br>e<br>H<br>-<br>5<br>n<br>oitc<br>e<br>S<br>'<br>o<br>t<br>r<br>e<br>f<br>e<br>r<br>-<br>3<br>R<br>C<br>A<br>m<br>u<br>t<br>a<br>d<br>-<br>e<br>R<br>'3<br>R<br>C<br>A<br>e<br>h<br>t<br>g<br>ni<br>m<br>u<br>t<br>a<br>D</td>
+</tr>
+<tr>
+<td>r<br>a<br>e<br>w<br>e<br>vis<br>s<br>e<br>c<br>x<br>E<br>.tr<br>o<br>p<br>3<br>R<br>C<br>A<br>n<br>o</td>
+<td>e<br>b<br>o<br>r<br>p<br>d<br>e<br>n<br>gila<br>yld<br>a<br>B<br>.<br>d<br>a<br>e<br>h<br>.<br>3<br>R<br>C<br>A<br>d<br>e<br>n<br>gila<br>yld<br>a<br>B<br>e<br>h<br>t<br>g<br>nih<br>c<br>a<br>o<br>r<br>p<br>p<br>A<br>e<br>h<br>t<br>f<br>o<br>e<br>fil<br>d<br>e<br>tc<br>e<br>p<br>x<br>e<br>.tr<br>o<br>p<br>3<br>R<br>C<br>A</td>
+<td>-<br>3<br>n<br>oitc<br>e<br>S<br>'<br>o<br>t<br>r<br>e<br>f<br>e<br>r<br>-<br>d<br>a<br>e<br>h<br>e<br>b<br>o<br>r<br>p<br>n<br>gila<br>-<br>e<br>R<br>.'t<br>n<br>e<br>m<br>n<br>gila<br>d<br>a<br>e<br>H<br>-<br>5<br>n<br>oitc<br>e<br>S<br>'<br>o<br>t<br>r<br>e<br>f<br>e<br>r<br>-<br>3<br>R<br>C<br>A<br>m<br>u<br>t<br>a<br>d<br>-<br>e<br>R<br>'3<br>R<br>C<br>A<br>e<br>h<br>t<br>g<br>ni<br>m<br>u<br>t<br>a<br>D<br>-<br>8<br>n<br>oitc<br>e<br>S<br>'<br>o<br>t<br>r<br>e<br>f<br>e<br>r<br>-tr<br>o<br>p<br>e<br>h<br>t<br>e<br>c<br>alp<br>e<br>R<br>-<br>9<br>n<br>oitc<br>e<br>S<br>'<br>d<br>n<br>a<br>'str<br>a<br>p<br>e<br>r<br>a<br>p<br>s/s<br>eir<br>o<br>s<br>s<br>e<br>c<br>c<br>A<br>.'e<br>c<br>n<br>a<br>n<br>e<br>t<br>nia<br>M</td>
+</tr>
+<tr>
+<td>t<br>o<br>n<br>s<br>e<br>o<br>d<br>3<br>R<br>C<br>A<br>.ylh<br>t<br>o<br>o<br>m<br>s<br>n<br>u<br>r</td>
+<td>e<br>b<br>o<br>r<br>p<br>d<br>e<br>n<br>gila<br>yld<br>a<br>B<br>.<br>d<br>a<br>e<br>h<br>.<br>3<br>R<br>C<br>A<br>d<br>e<br>n<br>gila<br>yld<br>a<br>B<br>o<br>t<br>d<br>e<br>r<br>u<br>c<br>c<br>o<br>e<br>g<br>a<br>m<br>a<br>D<br>.<br>3<br>R<br>C<br>A</td>
+<td>-<br>3<br>n<br>oitc<br>e<br>S<br>'<br>o<br>t<br>r<br>e<br>f<br>e<br>r<br>-<br>d<br>a<br>e<br>h<br>e<br>b<br>o<br>r<br>p<br>n<br>gila<br>-<br>e<br>R<br>.'t<br>n<br>e<br>m<br>n<br>gila<br>d<br>a<br>e<br>H<br>-<br>5<br>n<br>oitc<br>e<br>S<br>'<br>o<br>t<br>r<br>e<br>f<br>e<br>r<br>-<br>3<br>R<br>C<br>A<br>m<br>u<br>t<br>a<br>d<br>-<br>e<br>R<br>'3<br>R<br>C<br>A<br>e<br>h<br>t<br>g<br>ni<br>m<br>u<br>t<br>a<br>D<br>w<br>a<br>h<br>sin<br>e<br>R<br>la<br>c<br>ol<br>e<br>h<br>t<br>o<br>t<br>3<br>R<br>C<br>A<br>e<br>h<br>t<br>n<br>r<br>u<br>t<br>e<br>R<br>.<br>e<br>rt<br>n<br>e<br>c<br>e<br>civ<br>r<br>e<br>s</td>
+</tr>
+<tr>
+<td>g<br>nitc<br>u<br>rts<br>b<br>o<br>d<br>a<br>e<br>H<br>3<br>R<br>C<br>A<br>g<br>nir<br>u<br>d<br>k<br>c<br>oln<br>u<br>.k<br>c<br>ol<br>.<br>e<br>c<br>n<br>e<br>u<br>q<br>e<br>s</td>
+<td>e<br>b<br>o<br>r<br>p<br>d<br>e<br>n<br>gila<br>yld<br>a<br>B<br>.<br>d<br>a<br>e<br>h<br>.<br>3<br>R<br>C<br>A<br>d<br>e<br>n<br>gila<br>yld<br>a<br>B<br>"<br>k<br>c<br>a<br>ts<br>"<br>o<br>t<br>g<br>nit<br>p<br>m<br>e<br>tt<br>A<br>.s<br>r<br>a<br>b<br>n<br>ois<br>n<br>e<br>tx<br>e<br>o<br>t<br>d<br>e<br>r<br>u<br>c<br>c<br>o<br>e<br>g<br>a<br>m<br>a<br>D<br>.<br>3<br>R<br>C<br>A</td>
+<td>-<br>3<br>n<br>oitc<br>e<br>S<br>'<br>o<br>t<br>r<br>e<br>f<br>e<br>r<br>-<br>d<br>a<br>e<br>h<br>e<br>b<br>o<br>r<br>p<br>n<br>gila<br>-<br>e<br>R<br>.'t<br>n<br>e<br>m<br>n<br>gila<br>d<br>a<br>e<br>H<br>-<br>5<br>n<br>oitc<br>e<br>S<br>'<br>o<br>t<br>r<br>e<br>f<br>e<br>r<br>-<br>3<br>R<br>C<br>A<br>m<br>u<br>t<br>a<br>d<br>-<br>e<br>R<br>'3<br>R<br>C<br>A<br>e<br>h<br>t<br>g<br>ni<br>m<br>u<br>t<br>a<br>D<br>n<br>e<br>e<br>b<br>t<br>o<br>n<br>s<br>a<br>h<br>m<br>e<br>ts<br>y<br>s<br>3<br>R<br>C<br>A<br>e<br>h<br>T<br>f<br>o<br>g<br>nik<br>c<br>a<br>ts<br>e<br>h<br>t<br>tr<br>o<br>p<br>p<br>u<br>s<br>o<br>t<br>d<br>e<br>n<br>gis<br>e<br>d<br>.s<br>r<br>a<br>b<br>n<br>ois<br>n<br>e<br>tx<br>e<br>w<br>a<br>h<br>sin<br>e<br>R<br>la<br>c<br>ol<br>e<br>h<br>t<br>o<br>t<br>3<br>R<br>C<br>A<br>e<br>h<br>t<br>n<br>r<br>u<br>t<br>e<br>R<br>.<br>e<br>rt<br>n<br>e<br>c<br>e<br>civ<br>r<br>e<br>s</td>
+</tr>
+</tbody>
+</table>
+<p><strong>60</strong> Troubleshooting </p>
+<p>INTENTIONALLY, THIS PAGE HAS BEEN LEFT  BLANK </p>
+<p>Accessories/spare parts </p>
+<p><strong>61</strong> </p>
+<h2 id="8-accessoriesspare-parts"><strong>8 Accessories/spare parts</strong></h2>
+<p>As the ACR3 is part of a modular system offered by Renishaw, all part numbers for the ACR3 system, the MRS system and other components that can be fitted to the rack are specified below: </p>
+<h2 id="acr3-system"><strong>ACR3 system</strong></h2>
+<p>ACR3 4 port rack kit (includes tooling) A-5036-0005 </p>
+<h2 id="spares"><strong>Spares</strong></h2>
+<p>ACR3 setting gauge M-5036-0004 Lid clip M-1051-0043 'T' nut P-NU18-0005 Long 'T' nut M-5036-0055 Port replacement kit (4 ports) A-5036-0049 </p>
+<h2 id="mrs-system"><strong>MRS system</strong></h2>
+<p>MRS rack 400 mm long A-4192-0050 600 mm long A-4192-0051 1000 mm long A-4192-0052 </p>
+<h2 id="spares_1"><strong>Spares</strong></h2>
+<p>MRS leg 125 mm long A-4192-0053 62.5 mm long A-4192-0061 MRS feet A-4192-0055 MRS stand off adaptor A-4192-0058 MRS leg to foot adaptor A-4192-0055 Plastic end cap P-BG03-0014 </p>
+<h2 id="scp600-stylus-change-port-for-the-sp600-probe"><strong>SCP600 (stylus change port for the SP600 probe)</strong></h2>
+<p>SCP600 port (includes tooling) A-2098-0933 </p>
+<h2 id="spares_2"><strong>Spares</strong></h2>
+<p>Stylus spanner M-5000-3707 </p>
+<p>Accessories/spare parts </p>
+<p><strong>62</strong> </p>
+<p>INTENTIONALLY, THIS PAGE HAS BEEN LEFT  BLANK </p>
+<p>Maintenance </p>
+<p><strong>63</strong> </p>
+<h2 id="9-maintenance"><strong>9 Maintenance</strong></h2>
+<p>The ACR3 has no user serviceable parts. As such, should the unit become defective it should be returned to the local Renishaw service centre. </p>
+<p>It is however possible to replace the ports on the ACR3 should they become damaged or worn during the life of the rack. </p>
+<h2 id="91-port-replacement"><strong>9.1 Port replacement</strong></h2>
+<p>A <strong>!</strong> </p>
+<p><strong>CAUTION:</strong> The ACR3 is positioned in the working envelope of the CMM, it is recommended that power is removed from the CMM servos throughout the port replacement procedure. </p>
+<p>Port replacement is carried out using the following procedure (figure 26): </p>
+<ol>
+<li>
+<p>Release and remove the two M3 x 6 mm long screws and remove the port(s) to be replaced. </p>
+</li>
+<li>
+<p>Loosen the M3 x 6 mm long screws securing the remaining ports in preparation for final alignment. </p>
+</li>
+</ol>
+<p><strong>Figure 26 - Replacing ACR port</strong> </p>
+<p><strong>64</strong> Maintenance </p>
+<ol>
+<li>
+<p>Position the replacement port(s) onto the rack and loosely screw in place. </p>
+</li>
+<li>
+<p>Open all the port lids using the lid clips supplied with the ACR3. </p>
+</li>
+<li>
+<p>Place a rigid straight edge along the underside of all the ports and tighten all M3 x 6 mm long screws to 0.3 Nm.  It is very important that the ports are correctly aligned. </p>
+</li>
+<li>
+<p>Remove straight edge and lid clips. </p>
+</li>
+<li>
+<p>Re-datum the rack (see <strong>‘Datuming of the ACR3</strong> ’). </p>
+</li>
+</ol>
+<h2 id="92-cleaning"><strong>9.2 Cleaning</strong></h2>
+<p>The ACR3 is not a sealed unit. Cleaning of the ACR3 should therefore be restricted to the use of a clean dry cloth. </p>
+<p>System dimensions </p>
+<p><strong>65</strong> </p>
+<h2 id="10-system-dimensions"><strong>10 System dimensions</strong></h2>
+<h2 id="101-4-port-system"><strong>10.1 4 port system</strong></h2>
+<p><strong><mark>&gt; picture [338 x 365] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+275 (swept volume)<br>Unlocked<br>35<br>70<br>105<br>Locked<br>88.96<br>123.96<br>158.96<br>193.96<br><strong>----- End of picture text -----</strong><br></p>
+<p><strong>Figure 27 - 4 port ACR3 operating envelope</strong> </p>
+<p><strong>66</strong> System dimensions </p>
+<h2 id="102-8-port-system"><strong>10.2 8 port system</strong></h2>
+<p><strong><mark>&gt; picture [329 x 405] intentionally omitted &lt;</mark></strong></p>
+<p><strong>----- Start of picture text -----</strong><br>
+380.96<br>345.96<br>310.96<br>292<br>257 275.96<br>222<br>460<br>193.96<br>187 158.96<br>123.96<br>105<br>70 88.96<br>35<br><strong>----- End of picture text -----</strong><br></p>
+<p><strong>Figure 28 - 8 port ACR3 operating envelope</strong> </p>
+<p><strong>Installation and user’s guide</strong> H-1000-5087-01-A </p>
+<p><strong>Renishaw plc T</strong> +44 (0)1453 524524 New Mills, Wotton-under-Edge, <strong>F</strong> +44 (0)1453 524901 Gloucestershire, GL12 8JR <strong>E</strong> uk@renishaw.com United Kingdom www.renishaw.com </p>
+<h2 id="acr3-autochange-rack-system_2"><strong>ACR3 autochange rack system</strong></h2>
+<p><strong>For worldwide contact details, please visit our main website at www.renishaw.com/contact</strong></p>
+<p>Asthma </p>
+<p><img alt="alt text" src="../../documentation/randompics/image-2.png" /></p>
+<p>Inside of a PH10MQ</p>
+<p><img alt="alt text" src="../../documentation/randompics/image-4.png" /></p>
+<p>Wedged PH</p>
+<p><img alt="alt text" src="../../documentation/randompics/image-5.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "toc.follow", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.tooltips", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/welcome.js"></script>
+      
+        <script src="../../assets/js/enhance.js"></script>
+      
+    
+  </body>
+</html>

@@ -28,6 +28,16 @@ it up. The information is easier to find and compiled to be more easily digested
 
 ---
 
+### [**Step By Steps**](../documentation/stepbysteps/sub/)
+
+It's highly recommended to refrence these documents frequently while your learning all the processes. **They will keep you from forgetting vital steps!**
+
+### **Refrence Page**
+
+Make sure to check out the refrence page as it goes over most of the new terminalogy and tools you'll be using.
+
+---
+
 ## **What's that? — a tour of the tabs**
 
 There's a lot on the site, so here's a quick breakdown of each tab:
@@ -37,14 +47,8 @@ There's a lot on the site, so here's a quick breakdown of each tab:
 - **Simulation** — the CMM error simulator, a visual way to see how geometric machine errors compound across the measuring volume.
 - **Random** — self-explanatory: random fun stuff. Found something funny, weird, or just appreciated where you are for the week? Send it over.
 
+
 ---
 
-### Quick-start checklist
-
-- [ ] Try the search bar — type something you do every week
-- [ ] Skim **Documentation → Hardware** and **Software**
-- [ ] Watch a couple of the **Reference Videos**
-- [ ] Bookmark this site so it's one click away
-
-That's it — you're set. If anything's missing or wrong, send it over and it'll get
+That's it you're set. If anything's missing or wrong, send it over and it'll get
 added.

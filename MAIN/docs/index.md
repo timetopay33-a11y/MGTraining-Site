@@ -8,9 +8,9 @@ hide:
 
 # MG Training Documentation
 
-Your hub for troubleshooting, procedures, and step-by-step guides across our
-metrology hardware and software. Compiled by the team, for the team — and for
-whoever comes next.
+Your hub for troubleshooting, procedures, and step by step guides across our
+metrology hardware and software. Compiled by the team, for the team and for
+whoever comes next!
 
 <div class="mg-hero__cta">
   <a class="md-button mg-primary" href="documentation/hardware/ballbar/ballbar/">Browse the docs</a>
@@ -44,9 +44,9 @@ whoever comes next.
 
     In-depth documentation on core processes.
 
--   :material-star-circle:{ .lg .middle } __[Important](important/licenseupdates.md)__
+-   :material-star-circle:{ .lg .middle } __[Licence Updates](important/licenseupdates.md)__
 
-    License updates, remote keys, and links.
+    No more emails or waiting on others!
 
 -   :material-cube-scan:{ .lg .middle } __[CMM Simulator](sim.md)__
 

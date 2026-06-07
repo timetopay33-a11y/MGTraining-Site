@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMM Geometric Error Simulator</title>
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!--
+    Three.js loaded via CDN import map so ES-module imports resolve cleanly.
+    Pinned to a specific version for reproducibility.
+  -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- 3D viewport -->
+    <div id="viewport">
+      <canvas id="scene"></canvas>
+
+      <!-- Heads-up overlay: legend + stats -->
+      <div id="hud">
+        <div class="hud-row">
+          <span class="swatch swatch--ideal"></span>
+          <span>Ideal volume</span>
+        </div>
+        <div class="hud-row">
+          <span class="swatch swatch--distorted"></span>
+          <span>Distorted volume</span>
+        </div>
+        <div class="hud-row">
+          <span class="swatch swatch--deviation"></span>
+          <span>Deviation vectors</span>
+        </div>
+        <div class="hud-sep"></div>
+        <div class="hud-row"><span>Max dev:</span><span id="stat-max">0.000</span></div>
+        <div class="hud-row"><span>RMS dev:</span><span id="stat-rms">0.000</span></div>
+      </div>
+
+      <!-- Axis labels hint -->
+      <div id="axis-hint">
+        <span style="color:#ff5b5b">X</span>
+        <span style="color:#5bff85">Y</span>
+        <span style="color:#5b9dff">Z</span>
+      </div>
+    </div>
+
+    <!-- Control panel -->
+    <aside id="panel">
+      <header class="panel-header">
+        <div class="panel-title">CMM ERROR SIMULATOR</div>
+        <div class="panel-sub">Geometric error training — not for metrology</div>
+      </header>
+
+      <!-- Display toggles -->
+      <section class="panel-section">
+        <div class="section-title">Display</div>
+        <div class="toggle-row">
+          <label class="chk"><input type="checkbox" id="toggle-ideal" checked><span>Ideal grid</span></label>
+          <label class="chk"><input type="checkbox" id="toggle-distorted" checked><span>Distorted grid</span></label>
+          <label class="chk"><input type="checkbox" id="toggle-part" checked><span>Sample part</span></label>
+          <label class="chk"><input type="checkbox" id="toggle-vectors" checked><span>Deviation vectors</span></label>
+          <label class="chk"><input type="checkbox" id="toggle-magnify"><span>Magnify ×10</span></label>
+        </div>
+      </section>
+
+      <!-- Presets -->
+      <section class="panel-section">
+        <div class="section-title">Preset scenarios</div>
+        <div class="preset-grid" id="preset-grid">
+          <!-- buttons injected by js/ui.js -->
+        </div>
+        <button id="btn-reset" class="btn btn--reset">Reset all errors</button>
+      </section>
+
+      <!-- Sliders, injected by js/ui.js -->
+      <section class="panel-section">
+        <div class="section-title">Linear &amp; squareness</div>
+        <div id="group-linear" class="slider-group"></div>
+      </section>
+
+      <section class="panel-section">
+        <div class="section-title">Angular errors</div>
+        <div id="group-angular" class="slider-group"></div>
+      </section>
+
+      <section class="panel-section">
+        <div class="section-title">Straightness &amp; linearity</div>
+        <div id="group-straight" class="slider-group"></div>
+      </section>
+
+      <footer class="panel-footer">
+        <span>Drag to orbit · Scroll to zoom · Right-drag to pan</span>
+      </footer>
+    </aside>
+
+  </div>
+
+  <!-- Entry point -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
