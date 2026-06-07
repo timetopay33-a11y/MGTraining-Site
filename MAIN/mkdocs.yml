@@ -133,6 +133,8 @@ nav:
 
   - Training:
       - training/start.md
+      - Refrence Pages: 
+        - Hardware: training/hardware.md
 
   - Random:
       - Cursed: Home/cursed.md
